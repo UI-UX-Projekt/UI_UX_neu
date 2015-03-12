@@ -2,6 +2,7 @@ package com.mycompany.neuerversuch;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -17,13 +18,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import static com.mycompany.neuerversuch.R.*;
+
 
 public class MainActivity extends ActionBarActivity
-        implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+                   Pers_Suche_Fragment.OnFragmentInteractionListener,
+                   AnmeldenFragment.OnFragmentInteractionListener,
+                   EmpfehlungenFragment.OnFragmentInteractionListener,
+                   ErgebnisFragment.OnFragmentInteractionListener,
+                   FavoritenFragment.OnFragmentInteractionListener,
+                   KategorieFragment.OnFragmentInteractionListener,
+                   StartseiteFragment.OnFragmentInteractionListener{
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -34,50 +47,89 @@ public class MainActivity extends ActionBarActivity
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
     private CharSequence mTitle;
+    private AbsListView mDrawerList;
+    private android.support.v4.widget.DrawerLayout mDrawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(layout.activity_main);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
-                getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
+                getSupportFragmentManager().findFragmentById(id.navigation_drawer);
         mTitle = getTitle();
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+                id.navigation_drawer,
+                (DrawerLayout) findViewById(id.drawer_layout));
     }
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
         FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-                .commit();
+        switch(position){
+            case 0:
+                    fragmentManager.beginTransaction()
+                            .replace(id.container, StartseiteFragment.newInstance("test1","test2"))
+                            .commit();
+                    break;
+
+
+            case 1:
+                    fragmentManager.beginTransaction()
+                            .replace(id.container, Pers_Suche_Fragment.newInstance("test1","test2"))
+                            .commit();
+                            break;
+            case 2:
+                    fragmentManager.beginTransaction()
+                            .replace(id.container, KategorieFragment.newInstance("test1","test2"))
+                            .commit();
+                    break;
+            case 3:
+                fragmentManager.beginTransaction()
+                        .replace(id.container, FavoritenFragment.newInstance("test1","test2"))
+                        .commit();
+                break;
+            case 4:
+                fragmentManager.beginTransaction()
+                        .replace(id.container, EmpfehlungenFragment.newInstance("test1","test2"))
+                        .commit();
+                break;
+            case 5:
+                fragmentManager.beginTransaction()
+                        .replace(id.container, AnmeldenFragment.newInstance("test1","test2"))
+                        .commit();
+                break;
+            default:
+                fragmentManager.beginTransaction()
+                        .replace(id.container, PlaceholderFragment.newInstance(position + 1))
+                        .commit();
+                break;
+        }
+
     }
 
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
-                mTitle = getString(R.string.title_section1);
+                mTitle = getString(string.title_section1);
                 break;
             case 2:
-                mTitle = getString(R.string.title_section2);
+                mTitle = getString(string.title_section2);
                 break;
             case 3:
-                mTitle = getString(R.string.title_section3);
+                mTitle = getString(string.title_section3);
                 break;
             case 4:
-                mTitle = getString(R.string.title_section4);
+                mTitle = getString(string.title_section4);
                 break;
             case 5:
-                mTitle = getString(R.string.title_section5);
+                mTitle = getString(string.title_section5);
                 break;
             case 6:
-                mTitle = getString(R.string.title_section6);
+                mTitle = getString(string.title_section6);
                 break;
         }
     }
@@ -100,7 +152,7 @@ public class MainActivity extends ActionBarActivity
             restoreActionBar();
             return true;
         }
-        MenuItem searchItem = menu.findItem(R.id.action_search);
+        MenuItem searchItem = menu.findItem(id.action_search);
         if(searchItem != null) {
             SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 
@@ -132,10 +184,16 @@ public class MainActivity extends ActionBarActivity
         return super.onOptionsItemSelected(item);
     }
 
-    public void onClickPersSuche(){
-        Intent intent = new Intent(this, PersSucheActivity.class);
-        startActivity(intent);
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
+
+    @Override
+    public void onFragmentInteraction(String id) {
+
+    }
+
     /**
      * A placeholder fragment containing a simple view.
      */
@@ -164,7 +222,7 @@ public class MainActivity extends ActionBarActivity
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            View rootView = inflater.inflate(layout.fragment_main, container, false);
             return rootView;
         }
 
@@ -175,5 +233,38 @@ public class MainActivity extends ActionBarActivity
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
     }
+
+
+ /*   public class DrawerItemClickListener implements ListView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView parent, View view, int position, long id) {
+            selectItem(position);
+        }
+
+
+        private void selectItem(int position) {
+            // Create a new fragment and specify the planet to show based on position
+            android.app.Fragment fragment = new Pers_Suche_Fragment();
+            Bundle args = new Bundle();
+            //   args.putInt(Pers_Suche_Fragment.ARG_PLANET_NUMBER, position);
+            fragment.setArguments(args);
+
+            // Insert the fragment by replacing any existing fragment
+            android.app.FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
+
+            // Highlight the selected item, update the title, and close the drawer
+            mDrawerList.setItemChecked(position, true);
+            setTitle("Suche");
+            mDrawerLayout.closeDrawer(mDrawerList);
+        }
+
+         public void setTitle(CharSequence title) {
+            mTitle = title;
+            getActionBar().setTitle(mTitle);
+        }
+    }*/
 
 }
