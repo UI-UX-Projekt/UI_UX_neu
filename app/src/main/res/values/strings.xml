@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">(En-) Joy Event</string>
+
+    <string name="title_section1">Startseite</string>
+    <string name="title_section2">Persönliche Suche</string>
+    <string name="title_section3">Kategorien</string>
+    <string name="title_section4">Favoriten</string>
+    <string name="title_section5">Empfehlungen</string>
+    <string name="title_section6">Anmelden</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_search">Suche</string>
+    <string name="title_activity_pers_suche">PersSucheActivity</string>
+
+    <string name="hello_world">Hello World!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_pers_suche2">PersSuche2</string>
+
+    <string name="action_example">Example action</string>
+
+
+</resources>

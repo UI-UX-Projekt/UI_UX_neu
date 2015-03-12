@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_activated="true">
+        <shape>
+            <solid android:color="#ffba3583" /> <!-- FARBEN !!!!!!!!!!!!!!!!!!!!!-->
+
+        </shape>
+    </item>
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#ffba3583" /> <!-- FARBE beim Draufdrücken!!!!!!!!!!!!!!!!!!!!!-->
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <solid android:color="#ffe9c67d" />
+        </shape>
+    </item>
+</selector>
