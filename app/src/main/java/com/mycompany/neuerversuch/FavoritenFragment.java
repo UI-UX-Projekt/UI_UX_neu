@@ -2,7 +2,11 @@ package com.mycompany.neuerversuch;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,10 +14,15 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.app.ListFragment;
 
 
 import com.mycompany.neuerversuch.dummy.DummyContent;
+import com.mycompany.neuerversuch.dummy.PreviewAdapter;
+
+import java.util.ArrayList;
 
 /**
  * A fragment representing a list of Items.
@@ -77,6 +86,50 @@ public class FavoritenFragment extends Fragment implements AbsListView.OnItemCli
         // TODO: Change Adapter to display your content
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //Code Philipp
+        //Vorgehensweise nach https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
+        // Construct the data source
+        ArrayList<PreviewElements> arrayOfPreviews = new ArrayList<PreviewElements>();
+        // Create the adapter to convert the array to views
+        PreviewAdapter adapter = new PreviewAdapter(getActivity(), arrayOfPreviews);
+        // Attach the adapter to a ListView
+        ListView listView = (ListView) getView().findViewById(R.id.fav_list);
+        if(listView == null){
+            Log.i("PHILIPP", "listview ist null");
+        }
+        listView.setAdapter(adapter);
+        // Add item to adapter
+        PreviewElements newElement = new PreviewElements("Name", "Kurze Beschreibung", "Zeiten", "Webseite", 2, false, R.mipmap.icon_app_club);
+        adapter.add(newElement);
+
+/*
+        ListView listFavorits = (ListView) getView().findViewById(R.id.fav_list);
+        ListAdapter adapter = listFavorits.getAdapter();
+        Element_Preview fragment = new Element_Preview();
+       // fragment.
+        ViewPreviewElement
+        listFavorits.addView();
+
+        //Adapter
+
+        /*FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Element_Preview fragment = new Element_Preview();
+
+        ListView listFavorits = (ListView) getView().findViewById(R.id.fav_list);
+        ListAdapter adapter = listFavorits.getAdapter();
+        adapter.
+*/
+        // fragmentTransaction.add(R.id.fav_list, fragment);
+        // fragmentTransaction.commit();
+
+        //Ende Code Philipp
     }
 
     @Override
@@ -85,11 +138,12 @@ public class FavoritenFragment extends Fragment implements AbsListView.OnItemCli
         View view = inflater.inflate(R.layout.fav_fragment_item, container, false);
 
         // Set the adapter
-        mListView = (AbsListView) view.findViewById(android.R.id.list);
+        mListView = (AbsListView) view.findViewById(R.id.fav_list);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
         mListView.setOnItemClickListener(this);
+        //Platzhalter
 
         return view;
     }

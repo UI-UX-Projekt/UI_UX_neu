@@ -36,7 +36,9 @@ public class MainActivity extends ActionBarActivity
                    ErgebnisFragment.OnFragmentInteractionListener,
                    FavoritenFragment.OnFragmentInteractionListener,
                    KategorieFragment.OnFragmentInteractionListener,
-                   StartseiteFragment.OnFragmentInteractionListener{
+                   StartseiteFragment.OnFragmentInteractionListener,
+                   Element_Preview.OnFragmentInteractionListener{
+
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.

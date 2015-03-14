@@ -3,6 +3,8 @@ package com.mycompany.neuerversuch;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,6 +79,16 @@ public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItem
         // TODO: Change Adapter to display your content
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+        //Code Philipp
+        /*FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        Element_Preview fragment = new Element_Preview();
+        fragmentTransaction.add(R.id.ListeEmpfehlungen, fragment);
+        fragmentTransaction.commit();
+        */
+        //Ende Code Philipp
+
+
     }
 
     @Override
@@ -85,7 +97,7 @@ public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItem
         View view = inflater.inflate(R.layout.empfehlungen_fragment_item, container, false);
 
         // Set the adapter
-        mListView = (AbsListView) view.findViewById(android.R.id.list);
+        mListView = (AbsListView) view.findViewById(R.id.ListeEmpfehlungen);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
