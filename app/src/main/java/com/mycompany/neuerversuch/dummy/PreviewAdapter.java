@@ -1,6 +1,12 @@
 package com.mycompany.neuerversuch.dummy;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.Typeface;
+import android.graphics.drawable.LayerDrawable;
+import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,8 +48,26 @@ public class PreviewAdapter extends ArrayAdapter<PreviewElements>{
         TextView uhrzeit = (TextView) convertView.findViewById(R.id.uhrzeit);
         TextView webseite = (TextView) convertView.findViewById(R.id.webseite);
         RatingBar rating = (RatingBar) convertView.findViewById(R.id.ratingBar);
-        Button favorite = (Button) convertView.findViewById(R.id.favorite);
-
+        LayerDrawable stars = (LayerDrawable) rating.getProgressDrawable();
+        stars.getDrawable(2).setColorFilter(Color.YELLOW, PorterDuff.Mode.SRC_ATOP);
+        final TextView favorite = (TextView) convertView.findViewById(R.id.favorite);
+        Log.i("PHILIPP", "Listener geaddet");
+        //TextView favorite =(TextView) convertView.findViewById(R.id.favorite);
+        favorite.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TextView favorite =(TextView) convertView.findViewById(R.id.favorite);
+                if(favorite.getText() == "♡"){
+                    favorite.setText("♥");
+                    favorite.setTextColor(Color.RED);
+                }else{
+                    favorite.setText("♡");
+                    favorite.setTextColor(Color.GRAY);
+                    favorite.setTypeface(null, Typeface.BOLD);
+                }
+                Log.i("PHILIPP", "Listener funktioniert");
+            }
+        });
         // Populate the data into the template view using the data object
         name.setText(element.name);
         iconEvent.setImageResource(element.image);
