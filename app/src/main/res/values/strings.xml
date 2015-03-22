@@ -19,9 +19,21 @@
     <string name="title_activity_pers_suche2">PersSuche2</string>
 
     <string name="action_example">Example action</string>
+    <string name="title_kategorie1">Essen und Trinken</string>
+    <string name="title_kategorie2">Kultur</string>
+    <string name="title_kategorie3">Messe</string>
+    <string name="title_kategorie4">Musik</string>
+    <string name="title_kategorie5">Natur</string>
+    <string name="title_kategorie6">Party</string>
+    <string name="title_kategorie7">Sport</string>
+
+
+
+
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 
 </resources>

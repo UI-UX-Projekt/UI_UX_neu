@@ -7,6 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+
+import com.mycompany.neuerversuch.dummy.DummyContent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -17,17 +26,19 @@ import android.view.ViewGroup;
  * Use the {@link KategorieFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class KategorieFragment extends Fragment {
-    // TODO: Rename parameter arguments, choose names that match
+public class KategorieFragment extends Fragment implements AbsListView.OnItemClickListener{
+// TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private AbsListView mListView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+    private KategorieAdapter mAdapter;
 
     /**
      * Use this factory method to create a new instance of
@@ -58,13 +69,33 @@ public class KategorieFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+         List<Kategorie> items = new ArrayList<Kategorie>();
+        items.add(new Kategorie(R.drawable.ic_essen, getString(R.string.title_kategorie1)));
+        items.add(new Kategorie(R.drawable.ic_kultur, getString(R.string.title_kategorie2)));
+        items.add(new Kategorie(R.drawable.ic_messe2, getString(R.string.title_kategorie3)));
+        items.add(new Kategorie(R.drawable.ic_musik, getString(R.string.title_kategorie4)));
+        items.add(new Kategorie(R.drawable.ic_natur, getString(R.string.title_kategorie5)));
+        items.add(new Kategorie(R.drawable.ic_party, getString(R.string.title_kategorie6)));
+        items.add(new Kategorie(R.drawable.ic_sport, getString(R.string.title_kategorie7)));
+
+
+        // TODO: Change Adapter to display your content
+        mAdapter = new KategorieAdapter(getActivity(),  items);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_kategorie, container, false);
+        View view = inflater.inflate(R.layout.startseite_fragment_item, container, false);
+        // Set the adapter
+        mListView = (AbsListView) view.findViewById(android.R.id.list);
+        ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+
+        // Set OnItemClickListener so we can be notified on item clicks
+        mListView.setOnItemClickListener(this);
+
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -90,6 +121,11 @@ public class KategorieFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 
     /**

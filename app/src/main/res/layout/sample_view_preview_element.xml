@@ -68,12 +68,6 @@
             android:progress="77"
             android:layout_gravity="fill_horizontal|center"
             android:layout_rowSpan="2"
-            android:progressTint="#ff00ff00"
-            android:progressBackgroundTint="#ffff0000"
-            android:background="#ff0000ff"
-            android:progressBackgroundTintMode="src_over"
-            android:backgroundTintMode="src_over"
-            android:backgroundTint="#ff000000"
             android:progressDrawable="@drawable/customprogressbar"
             android:visibility="visible" />
 
