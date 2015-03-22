@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link AnmeldenFragment.OnFragmentInteractionListener} interface
+ * {@link OptionenFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link AnmeldenFragment#newInstance} factory method to
+ * Use the {@link OptionenFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AnmeldenFragment extends Fragment {
+public class OptionenFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,11 +35,11 @@ public class AnmeldenFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AnmeldenFragment.
+     * @return A new instance of fragment OptionenFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AnmeldenFragment newInstance(String param1, String param2) {
-        AnmeldenFragment fragment = new AnmeldenFragment();
+    public static OptionenFragment newInstance(String param1, String param2) {
+        OptionenFragment fragment = new OptionenFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -47,7 +47,7 @@ public class AnmeldenFragment extends Fragment {
         return fragment;
     }
 
-    public AnmeldenFragment() {
+    public OptionenFragment() {
         // Required empty public constructor
     }
 
@@ -64,7 +64,7 @@ public class AnmeldenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_anmelden, container, false);
+        return inflater.inflate(R.layout.fragment_optionen, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -79,7 +79,7 @@ public class AnmeldenFragment extends Fragment {
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
-            ((MainActivity) activity).onSectionAttached(6);
+            ((MainActivity) activity).onSectionAttached(7);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
