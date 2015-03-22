@@ -175,7 +175,7 @@ public class PreviewAdapter extends ArrayAdapter<PreviewElements>{
         uhrzeit.setText(element.zeiten);
         webseite.setText(element.webseite);
         rating.setProgress(element.rating);
-        rating.setProgressBackgroundTintMode(PorterDuff.Mode.SRC_OVER);
+//        rating.setProgressBackgroundTintMode(PorterDuff.Mode.SRC_OVER);
         /*if(element.favorite == true){
             favorite.setNumStars(1);
         }else{
