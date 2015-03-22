@@ -71,13 +71,13 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
         }
 
          List<Kategorie> items = new ArrayList<Kategorie>();
-        items.add(new Kategorie(R.drawable.ic_essen, getString(R.string.title_kategorie1)));
-        items.add(new Kategorie(R.drawable.ic_kultur, getString(R.string.title_kategorie2)));
-        items.add(new Kategorie(R.drawable.ic_messe2, getString(R.string.title_kategorie3)));
-        items.add(new Kategorie(R.drawable.ic_musik, getString(R.string.title_kategorie4)));
-        items.add(new Kategorie(R.drawable.ic_natur, getString(R.string.title_kategorie5)));
-        items.add(new Kategorie(R.drawable.ic_party, getString(R.string.title_kategorie6)));
-        items.add(new Kategorie(R.drawable.ic_sport, getString(R.string.title_kategorie7)));
+        items.add(Kategorie.ESSEN);
+        items.add(Kategorie.KULTUR);
+        items.add(Kategorie.MESSE);
+        items.add(Kategorie.MUSIK);
+        items.add(Kategorie.NATUR);
+        items.add(Kategorie.PARTY);
+        items.add(Kategorie.SPORT);
 
 
         // TODO: Change Adapter to display your content

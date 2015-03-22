@@ -110,6 +110,7 @@ public class MainActivity extends ActionBarActivity
                         .replace(id.container, OptionenFragment.newInstance("test1","test2"))
                         .commit();
                 break;
+
             default:
                 fragmentManager.beginTransaction()
                         .replace(id.container, PlaceholderFragment.newInstance(position + 1))
@@ -138,6 +139,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 6:
                 mTitle = getString(string.title_section6);
+                break;
+            case 7:
+                mTitle = getString(string.title_section7);
                 break;
         }
     }
