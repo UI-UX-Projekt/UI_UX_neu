@@ -5,10 +5,13 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.text.TextPaint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 
 /**
@@ -70,6 +73,8 @@ public class ViewPreviewElement extends View {
 
         // Update TextPaint and text measurements from attributes
         invalidateTextPaintAndMeasurements();
+
+
     }
 
     private void invalidateTextPaintAndMeasurements() {
@@ -107,6 +112,7 @@ public class ViewPreviewElement extends View {
                     paddingLeft + contentWidth, paddingTop + contentHeight);
             mExampleDrawable.draw(canvas);
         }
+
     }
 
     /**
