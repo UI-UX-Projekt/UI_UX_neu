@@ -31,12 +31,13 @@ import static com.mycompany.neuerversuch.R.*;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
                    Pers_Suche_Fragment.OnFragmentInteractionListener,
-                   AnmeldenFragment.OnFragmentInteractionListener,
                    EmpfehlungenFragment.OnFragmentInteractionListener,
                    ErgebnisFragment.OnFragmentInteractionListener,
                    FavoritenFragment.OnFragmentInteractionListener,
                    KategorieFragment.OnFragmentInteractionListener,
                    StartseiteFragment.OnFragmentInteractionListener,
+                   Faq_Fragment.OnFragmentInteractionListener,
+                   OptionenFragment.OnFragmentInteractionListener,
                    Element_Preview.OnFragmentInteractionListener{
 
 
@@ -101,9 +102,15 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 5:
                 fragmentManager.beginTransaction()
-                        .replace(id.container, AnmeldenFragment.newInstance("test1","test2"))
+                        .replace(id.container, Faq_Fragment.newInstance("test1","test2"))
                         .commit();
                 break;
+            case 6:
+                fragmentManager.beginTransaction()
+                        .replace(id.container, OptionenFragment.newInstance("test1","test2"))
+                        .commit();
+                break;
+
             default:
                 fragmentManager.beginTransaction()
                         .replace(id.container, PlaceholderFragment.newInstance(position + 1))
@@ -132,6 +139,9 @@ public class MainActivity extends ActionBarActivity
                 break;
             case 6:
                 mTitle = getString(string.title_section6);
+                break;
+            case 7:
+                mTitle = getString(string.title_section7);
                 break;
         }
     }

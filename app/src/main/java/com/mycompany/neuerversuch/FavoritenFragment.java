@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,11 +14,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.app.ListFragment;
 
 
 import com.mycompany.neuerversuch.dummy.DummyContent;
-import com.mycompany.neuerversuch.dummy.PreviewAdapter;
 
 import java.util.ArrayList;
 
@@ -95,18 +91,17 @@ public class FavoritenFragment extends Fragment implements AbsListView.OnItemCli
         //Code Philipp
         //Vorgehensweise nach https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView
         // Construct the data source
-        ArrayList<PreviewElements> arrayOfPreviews = new ArrayList<PreviewElements>();
+
         // Create the adapter to convert the array to views
-        PreviewAdapter adapter = new PreviewAdapter(getActivity(), arrayOfPreviews);
+        EventAdapter adapter = new EventAdapter(getActivity(),EventList.getAllEvents());
         // Attach the adapter to a ListView
         ListView listView = (ListView) getView().findViewById(R.id.fav_list);
         if(listView == null){
-            Log.i("PHILIPP", "listview ist null");
+
         }
         listView.setAdapter(adapter);
         // Add item to adapter
-        PreviewElements newElement = new PreviewElements("Name", "Kurze Beschreibung", "Zeiten", "Webseite", 2, false, R.mipmap.icon_app_club);
-        adapter.add(newElement);
+
 
 /*
         ListView listFavorits = (ListView) getView().findViewById(R.id.fav_list);

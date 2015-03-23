@@ -79,14 +79,13 @@ public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItem
         // TODO: Change Adapter to display your content
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
-        //Code Philipp
+
         /*FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         Element_Preview fragment = new Element_Preview();
         fragmentTransaction.add(R.id.ListeEmpfehlungen, fragment);
         fragmentTransaction.commit();
         */
-        //Ende Code Philipp
 
 
     }

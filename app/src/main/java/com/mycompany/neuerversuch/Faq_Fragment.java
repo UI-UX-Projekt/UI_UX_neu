@@ -7,38 +7,27 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-
-import com.mycompany.neuerversuch.dummy.DummyContent;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link KategorieFragment.OnFragmentInteractionListener} interface
+ * {@link Faq_Fragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link KategorieFragment#newInstance} factory method to
+ * Use the {@link Faq_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class KategorieFragment extends Fragment implements AbsListView.OnItemClickListener{
-// TODO: Rename parameter arguments, choose names that match
+public class Faq_Fragment extends Fragment {
+    // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private AbsListView mListView;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
-    private KategorieAdapter mAdapter;
 
     /**
      * Use this factory method to create a new instance of
@@ -46,11 +35,11 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment KategorieFragment.
+     * @return A new instance of fragment Faq_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static KategorieFragment newInstance(String param1, String param2) {
-        KategorieFragment fragment = new KategorieFragment();
+    public static Faq_Fragment newInstance(String param1, String param2) {
+        Faq_Fragment fragment = new Faq_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -58,7 +47,7 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
         return fragment;
     }
 
-    public KategorieFragment() {
+    public Faq_Fragment() {
         // Required empty public constructor
     }
 
@@ -69,33 +58,13 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
-         List<Kategorie> items = new ArrayList<Kategorie>();
-        items.add(Kategorie.ESSEN);
-        items.add(Kategorie.KULTUR);
-        items.add(Kategorie.MESSE);
-        items.add(Kategorie.MUSIK);
-        items.add(Kategorie.NATUR);
-        items.add(Kategorie.PARTY);
-        items.add(Kategorie.SPORT);
-
-
-        // TODO: Change Adapter to display your content
-        mAdapter = new KategorieAdapter(getActivity(),  items);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.startseite_fragment_item, container, false);
-        // Set the adapter
-        mListView = (AbsListView) view.findViewById(android.R.id.list);
-        ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
-
-        // Set OnItemClickListener so we can be notified on item clicks
-        mListView.setOnItemClickListener(this);
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_faq, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -110,7 +79,7 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
-            ((MainActivity) activity).onSectionAttached(3);
+            ((MainActivity) activity).onSectionAttached(6);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -121,11 +90,6 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
     }
 
     /**
