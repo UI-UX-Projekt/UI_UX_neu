@@ -45,19 +45,19 @@ public class TopSectionDetailsView extends View {
                 attrs, R.styleable.TopSectionDetailsView, defStyle, 0);
 
         mExampleString = a.getString(
-                R.styleable.TopSectionDetailsView_exampleString);
+                R.styleable.TopSectionDetailsView_topSectionExampleString);
         mExampleColor = a.getColor(
-                R.styleable.TopSectionDetailsView_exampleColor,
+                R.styleable.TopSectionDetailsView_topSectionExampleColor,
                 mExampleColor);
         // Use getDimensionPixelSize or getDimensionPixelOffset when dealing with
         // values that should fall on pixel boundaries.
         mExampleDimension = a.getDimension(
-                R.styleable.TopSectionDetailsView_exampleDimension,
+                R.styleable.TopSectionDetailsView_topSectionExampleDimension,
                 mExampleDimension);
 
-        if (a.hasValue(R.styleable.TopSectionDetailsView_exampleDrawable)) {
+        if (a.hasValue(R.styleable.TopSectionDetailsView_topSectionExampleDrawable)) {
             mExampleDrawable = a.getDrawable(
-                    R.styleable.TopSectionDetailsView_exampleDrawable);
+                    R.styleable.TopSectionDetailsView_topSectionExampleDrawable);
             mExampleDrawable.setCallback(this);
         }
 
