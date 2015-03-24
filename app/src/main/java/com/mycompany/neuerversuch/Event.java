@@ -15,10 +15,12 @@ public class Event {
     private int likes;
     private int dislikes;
     private Kategorie kategorie;
-    double preis;
+    private double preis;
+    private boolean istFavorit;
+    private boolean istEmpfehlung;
 
 
-    public Event(int bild, String titel, Date datum, String ort, String beschreibung, String webseite, int likes, int dislikes, Kategorie kategorie, double preis){
+    public Event(int bild, String titel, Date datum, String ort, String beschreibung, String webseite, int likes, int dislikes, Kategorie kategorie, double preis, boolean istFavorit, boolean istEmpfehlung){
         this.bild=bild;
         this.titel=titel;
         this.datum=datum;
@@ -29,6 +31,9 @@ public class Event {
         this.dislikes=dislikes;
         this.kategorie=kategorie;
         this.preis=preis;
+        this.istFavorit=istFavorit;
+        this.istEmpfehlung=istEmpfehlung;
+
     }
 
     public String getBeschreibung() {
@@ -79,6 +84,14 @@ public class Event {
 
     public double getPreis() {
         return preis;
+    }
+
+    public boolean getIstFavorit() {
+        return istFavorit;
+    }
+
+    public boolean getIstEmpfehlung() {
+        return istEmpfehlung;
     }
 }
 

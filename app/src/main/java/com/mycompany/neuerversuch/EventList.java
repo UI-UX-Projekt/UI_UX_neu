@@ -23,7 +23,9 @@ public class EventList extends ArrayList<Event>{
                     4,  //likes
                     1,   //dislikes
                     Kategorie.PARTY, //Kategorie
-                    8.00  //preis
+                    8.00,  //preis
+                    false,    //istFavorit
+                    false     //istEmpfehlung
             ));
 
             eventListe.add(new Event(
@@ -36,7 +38,9 @@ public class EventList extends ArrayList<Event>{
                     6,  //likes
                     3,   //dislikes
                     Kategorie.NATUR, //Kategorie
-                    16.00  //preis
+                    16.00,  //preis
+                    false,    //istFavorit
+                    false     //istEmpfehlung
             ));
         }
 
@@ -53,4 +57,56 @@ public class EventList extends ArrayList<Event>{
 
         return matchedEventList;
     }
+
+    public EventList filteredByIstFavorit(){
+        EventList matchedEventList = new EventList();
+        for(Event event : this){
+            if(event.getIstFavorit()){
+                matchedEventList.add(event);
+            }
+        }
+        return matchedEventList;
+    }
+
+    public EventList filteredByIstEmpfehlung(){
+        EventList matchedEventList = new EventList();
+        for(Event event : this){
+            if(event.getIstEmpfehlung()){
+                matchedEventList.add(event);
+            }
+        }
+        return matchedEventList;
+    }
+
+    public EventList filteredByPreis(double preisuntergrenze, double preisobergrenze){
+        EventList matchedEventList = new EventList();
+        for(Event event : this){
+            if(preisuntergrenze <= event.getPreis() && event.getPreis()<= preisobergrenze){
+                matchedEventList.add(event);
+            }
+        }
+        return matchedEventList;
+    }
+
+    public EventList filteredByOrt(String ort){
+        EventList matchedEventList = new EventList();
+        for(Event event : this){
+            if(event.getOrt()==ort){
+                matchedEventList.add(event);
+            }
+        }
+        return matchedEventList;
+    }
+
+    public EventList filteredByDatum(Date datum){
+        EventList matchedEventList = new EventList();
+        for(Event event : this){
+            if(event.getDatum()==datum){
+                matchedEventList.add(event);
+            }
+        }
+        return matchedEventList;
+    }
+
+
 }

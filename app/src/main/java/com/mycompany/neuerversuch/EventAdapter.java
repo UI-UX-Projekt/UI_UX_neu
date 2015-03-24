@@ -45,7 +45,6 @@ public class EventAdapter extends ArrayAdapter<Event> {
                 uhrzeit.setText(event.getDatum().toLocaleString());
                 webseite.setText(event.getWebseite());
                 rating.setProgress(event.getRanking());
-                System.out.println("Progress: "+event.getRanking());
 
 
                 // Return the completed view to render on screen
