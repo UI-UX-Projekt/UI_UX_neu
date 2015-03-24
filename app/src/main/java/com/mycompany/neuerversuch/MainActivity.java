@@ -23,7 +23,6 @@ import static com.mycompany.neuerversuch.R.*;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
                    Filter_Suche_Fragment.OnFragmentInteractionListener,
-                   EmpfehlungenFragment.OnFragmentInteractionListener,
                    Detail_Fragment.OnFragmentInteractionListener,
                    Zentrale_Filterung_Fragment.OnFragmentInteractionListener,
                    Kategorie_Fragment.OnFragmentInteractionListener,
