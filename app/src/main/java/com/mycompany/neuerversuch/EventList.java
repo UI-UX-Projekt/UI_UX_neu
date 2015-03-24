@@ -16,7 +16,8 @@ public class EventList extends ArrayList<Event>{
             eventListe.add(new Event(
                     R.drawable.ic_en_vogue, // bild
                     "House, Electro meets Charts",  //titel
-                    new Date(450484752),    //datum
+                    "11.04.15",    //datum
+                    "22:00",    //uhrzeit
                     "Karlsruhe",      //ort
                     "House, Electro meets Charts // mit Nicolas Westermann & Mike - the guitar Hero",   //beschreibung
                     "http://www.envogue-nightclub.de",  //webseite
@@ -24,14 +25,16 @@ public class EventList extends ArrayList<Event>{
                     1,   //dislikes
                     Kategorie.PARTY, //Kategorie
                     8.00,  //preis
-                    false,    //istFavorit
-                    false     //istEmpfehlung
+                    true,    //istFavorit
+                    false,     //istEmpfehlung
+                    "abends"    //tageszeit
             ));
 
             eventListe.add(new Event(
                     R.drawable.ic_wilhelma, // bild
                     "Wilhelma",  //titel
-                    new Date(450484752),    //datum
+                    "",    //datum
+                    "09:00-18:00", //uhrzeit
                     "Stuttgart",      //ort
                     "Wilhelma - zoologischer Garten..",   //beschreibung
                     "http://www.wilhelma.de",  //webseite
@@ -40,7 +43,8 @@ public class EventList extends ArrayList<Event>{
                     Kategorie.NATUR, //Kategorie
                     16.00,  //preis
                     false,    //istFavorit
-                    false     //istEmpfehlung
+                    false,     //istEmpfehlung
+                    "ganztags"  //tageszeit
             ));
         }
 
@@ -98,15 +102,24 @@ public class EventList extends ArrayList<Event>{
         return matchedEventList;
     }
 
-    public EventList filteredByDatum(Date datum){
+    public EventList filteredByDatum(String datum){
         EventList matchedEventList = new EventList();
         for(Event event : this){
-            if(event.getDatum()==datum){
+            if(event.getDatum()==datum || event.getDatum()==""){
                 matchedEventList.add(event);
             }
         }
         return matchedEventList;
     }
 
+    public EventList filteredByTageszeit(String tageszeit) {
+        EventList matchedEventList = new EventList();
+        for (Event event : this) {
+            if (event.getTageszeit() == tageszeit) {
+                matchedEventList.add(event);
+            }
+        }
+        return matchedEventList;
+    }
 
 }

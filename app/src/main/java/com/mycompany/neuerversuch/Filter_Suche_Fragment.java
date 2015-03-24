@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link OptionenFragment.OnFragmentInteractionListener} interface
+ * {@link Filter_Suche_Fragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link OptionenFragment#newInstance} factory method to
+ * Use the {@link Filter_Suche_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OptionenFragment extends Fragment {
+public class Filter_Suche_Fragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -35,11 +35,11 @@ public class OptionenFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment OptionenFragment.
+     * @return A new instance of fragment Pers_Suche_Fragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static OptionenFragment newInstance(String param1, String param2) {
-        OptionenFragment fragment = new OptionenFragment();
+    public static Filter_Suche_Fragment newInstance(String param1, String param2) {
+        Filter_Suche_Fragment fragment = new Filter_Suche_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -47,7 +47,7 @@ public class OptionenFragment extends Fragment {
         return fragment;
     }
 
-    public OptionenFragment() {
+    public Filter_Suche_Fragment() {
         // Required empty public constructor
     }
 
@@ -64,7 +64,7 @@ public class OptionenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_optionen, container, false);
+        return inflater.inflate(R.layout.fragment_pers__suche_, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -79,7 +79,6 @@ public class OptionenFragment extends Fragment {
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
-            ((MainActivity) activity).onSectionAttached(7);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");

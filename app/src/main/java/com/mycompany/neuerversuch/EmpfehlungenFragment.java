@@ -110,7 +110,6 @@ public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItem
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
-            ((MainActivity) activity).onSectionAttached(5);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");

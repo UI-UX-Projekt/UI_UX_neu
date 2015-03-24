@@ -8,7 +8,8 @@ import java.util.Date;
 public class Event {
     private int bild;
     private String titel;
-    private Date datum;
+    private String datum;
+    private String uhrzeit;
     private String ort;
     private String beschreibung;
     private String webseite;
@@ -18,12 +19,14 @@ public class Event {
     private double preis;
     private boolean istFavorit;
     private boolean istEmpfehlung;
+    private String tageszeit;
 
 
-    public Event(int bild, String titel, Date datum, String ort, String beschreibung, String webseite, int likes, int dislikes, Kategorie kategorie, double preis, boolean istFavorit, boolean istEmpfehlung){
+    public Event(int bild, String titel, String datum,String uhrzeit, String ort, String beschreibung, String webseite, int likes, int dislikes, Kategorie kategorie, double preis, boolean istFavorit, boolean istEmpfehlung, String tageszeit){
         this.bild=bild;
         this.titel=titel;
         this.datum=datum;
+        this.uhrzeit=uhrzeit;
         this.ort=ort;
         this.beschreibung=beschreibung;
         this.webseite=webseite;
@@ -33,6 +36,7 @@ public class Event {
         this.preis=preis;
         this.istFavorit=istFavorit;
         this.istEmpfehlung=istEmpfehlung;
+        this.tageszeit=tageszeit;
 
     }
 
@@ -44,7 +48,7 @@ public class Event {
         return ort;
     }
 
-    public Date getDatum() {
+    public String getDatum() {
         return datum;
     }
 
@@ -92,6 +96,14 @@ public class Event {
 
     public boolean getIstEmpfehlung() {
         return istEmpfehlung;
+    }
+
+    public String getUhrzeit() {
+        return uhrzeit;
+    }
+
+    public String getTageszeit() {
+        return tageszeit;
     }
 }
 
