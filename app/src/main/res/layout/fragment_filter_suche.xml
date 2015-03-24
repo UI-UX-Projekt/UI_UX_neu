@@ -33,14 +33,15 @@
         android:id="@+id/txtVOptional"
         android:layout_row="0"
         android:layout_column="0"
-        android:layout_columnSpan="2" />
+        android:layout_columnSpan="1" />
 
     <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/standort"
             android:layout_row="1"
-            android:layout_column="1" />
+            android:layout_column="1"
+        android:layout_columnSpan="3" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -49,7 +50,8 @@
         android:ems="10"
         android:id="@+id/umkreis"
         android:layout_row="2"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:layout_columnSpan="3" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -58,7 +60,8 @@
         android:ems="10"
         android:id="@+id/datum"
         android:layout_row="3"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:layout_columnSpan="3" />
 
     <TextView
             android:layout_width="wrap_content"
@@ -85,7 +88,8 @@
             android:ems="10"
             android:id="@+id/tageszeit"
             android:layout_row="4"
-            android:layout_column="1" />
+            android:layout_column="1"
+        android:layout_columnSpan="3" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,7 +106,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinnerBegleitung"
         android:layout_row="5"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:layout_columnSpan="3" />
 
     <TextView
             android:layout_width="wrap_content"
@@ -121,7 +126,8 @@
         android:ems="10"
         android:id="@+id/minPreis"
         android:layout_row="6"
-        android:layout_column="1" />
+        android:layout_column="1"
+        android:layout_columnSpan="3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -130,7 +136,7 @@
         android:text="bis"
         android:id="@+id/txtVBis"
         android:layout_row="6"
-        android:layout_column="2" />
+        android:layout_column="3" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -139,7 +145,7 @@
         android:ems="10"
         android:id="@+id/maxPreis"
         android:layout_row="6"
-        android:layout_column="3" />
+        android:layout_column="4" />
 
     <TextView
             android:layout_width="wrap_content"
@@ -151,12 +157,75 @@
             android:layout_column="0"
         android:layout_gravity="left|center" />
 
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Messe"
+        android:id="@+id/chkBMesse"
+        android:layout_row="7"
+        android:layout_column="1"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Essen &amp; Trinken"
+        android:id="@+id/chkBEssenTrinken"
+        android:layout_row="7"
+        android:layout_column="2"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Musik"
+        android:id="@+id/chkBMusik"
+        android:layout_row="8"
+        android:layout_column="1"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Kultur"
+        android:id="@+id/chkBKultur"
+        android:layout_row="8"
+        android:layout_column="2"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Party"
+        android:id="@+id/chkBParty"
+        android:layout_row="9"
+        android:layout_column="1"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Natur"
+        android:id="@+id/chkBNatur"
+        android:layout_row="9"
+        android:layout_column="2"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sport"
+        android:id="@+id/chkBSport"
+        android:layout_row="10"
+        android:layout_column="1"
+        android:checked="false" />
+
     <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="neue Anfrage"
             android:id="@+id/btnClear"
-            android:layout_row="9"
+            android:layout_row="11"
             android:layout_column="0"
         android:layout_gravity="left|top" />
 
@@ -165,7 +234,7 @@
             android:layout_height="wrap_content"
             android:text="✔"
             android:id="@+id/btnStart"
-            android:layout_row="9"
-            android:layout_column="2" />
+            android:layout_row="11"
+            android:layout_column="3" />
 
 </GridLayout>
