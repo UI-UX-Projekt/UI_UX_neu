@@ -4,15 +4,14 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
-
-import com.mycompany.neuerversuch.dummy.DummyContent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,55 +20,33 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link KategorieFragment.OnFragmentInteractionListener} interface
+ * {@link Kategorie_Fragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link KategorieFragment#newInstance} factory method to
+ * Use the {@link Kategorie_Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class KategorieFragment extends Fragment implements AbsListView.OnItemClickListener{
-// TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemClickListener{
     private AbsListView mListView;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     private OnFragmentInteractionListener mListener;
     private KategorieAdapter mAdapter;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment KategorieFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static KategorieFragment newInstance(String param1, String param2) {
-        KategorieFragment fragment = new KategorieFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
+    private static MainActivity activity;
+
+    public static Kategorie_Fragment newInstance(MainActivity act) {
+        Kategorie_Fragment fragment = new Kategorie_Fragment();
+        activity=act;
         return fragment;
     }
 
-    public KategorieFragment() {
+    public Kategorie_Fragment() {
         // Required empty public constructor
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
          List<Kategorie> items = new ArrayList<Kategorie>();
         items.add(Kategorie.ESSEN);
         items.add(Kategorie.KULTUR);
@@ -80,7 +57,6 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
         items.add(Kategorie.SPORT);
 
 
-        // TODO: Change Adapter to display your content
         mAdapter = new KategorieAdapter(getActivity(),  items);
     }
 
@@ -98,7 +74,6 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
         return view;
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
@@ -110,7 +85,6 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
-            ((MainActivity) activity).onSectionAttached(3);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -125,21 +99,38 @@ public class KategorieFragment extends Fragment implements AbsListView.OnItemCli
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        EventList eventList=EventList.getAllEvents();
+        switch(position){
+            case 0:
+                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.ESSEN)),getString(R.string.title_kategorie1));
+                break;
+            case 1:
+                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.KULTUR)),getString(R.string.title_kategorie2));
+                break;
+            case 2:
+                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.MESSE)),getString(R.string.title_kategorie3));
+                break;
+            case 3:
+                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.MUSIK)),getString(R.string.title_kategorie4));
+                break;
+            case 4:
+                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.NATUR)),getString(R.string.title_kategorie5));
+                break;
+            case 5:
+                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.PARTY)),getString(R.string.title_kategorie6));
+                break;
+            case 6:
+                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.SPORT)),getString(R.string.title_kategorie7));
+                break;
+        }
 
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+    public void setTitle(CharSequence title){
+        activity.getActionBar().setTitle(title);
+    }
+
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
 

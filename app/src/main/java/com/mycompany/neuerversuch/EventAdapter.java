@@ -42,10 +42,9 @@ public class EventAdapter extends ArrayAdapter<Event> {
                 name.setText(event.getTitel());
                 iconEvent.setImageResource(event.getBild());
                 shortDescription.setText(event.getBeschreibung());
-                uhrzeit.setText(event.getDatum().toLocaleString());
+                uhrzeit.setText(event.getDatum());
                 webseite.setText(event.getWebseite());
                 rating.setProgress(event.getRanking());
-                System.out.println("Progress: "+event.getRanking());
 
 
                 // Return the completed view to render on screen

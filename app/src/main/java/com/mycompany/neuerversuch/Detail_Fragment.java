@@ -3,8 +3,6 @@ package com.mycompany.neuerversuch;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +24,7 @@ import com.mycompany.neuerversuch.dummy.DummyContent;
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItemClickListener {
+public class Detail_Fragment extends Fragment implements AbsListView.OnItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -51,8 +49,8 @@ public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItem
     private ListAdapter mAdapter;
 
     // TODO: Rename and change types of parameters
-    public static EmpfehlungenFragment newInstance(String param1, String param2) {
-        EmpfehlungenFragment fragment = new EmpfehlungenFragment();
+    public static Detail_Fragment newInstance(String param1, String param2) {
+        Detail_Fragment fragment = new Detail_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -64,7 +62,7 @@ public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItem
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public EmpfehlungenFragment() {
+    public Detail_Fragment() {
     }
 
     @Override
@@ -79,24 +77,15 @@ public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItem
         // TODO: Change Adapter to display your content
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
-
-        /*FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Element_Preview fragment = new Element_Preview();
-        fragmentTransaction.add(R.id.ListeEmpfehlungen, fragment);
-        fragmentTransaction.commit();
-        */
-
-
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.empfehlungen_fragment_item, container, false);
+        View view = inflater.inflate(R.layout.ergebnis_fragment_item, container, false);
 
         // Set the adapter
-        mListView = (AbsListView) view.findViewById(R.id.ListeEmpfehlungen);
+        mListView = (AbsListView) view.findViewById(android.R.id.list);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
@@ -110,7 +99,6 @@ public class EmpfehlungenFragment extends Fragment implements AbsListView.OnItem
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
-            ((MainActivity) activity).onSectionAttached(5);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");

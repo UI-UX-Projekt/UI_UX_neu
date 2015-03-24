@@ -1,17 +1,13 @@
 package com.mycompany.neuerversuch;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.net.Uri;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,26 +15,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.TextView;
 
 import static com.mycompany.neuerversuch.R.*;
 
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-                   Pers_Suche_Fragment.OnFragmentInteractionListener,
+                   Filter_Suche_Fragment.OnFragmentInteractionListener,
                    EmpfehlungenFragment.OnFragmentInteractionListener,
-                   ErgebnisFragment.OnFragmentInteractionListener,
-                   FavoritenFragment.OnFragmentInteractionListener,
-                   KategorieFragment.OnFragmentInteractionListener,
-                   StartseiteFragment.OnFragmentInteractionListener,
+                   Detail_Fragment.OnFragmentInteractionListener,
+                   Zentrale_Filterung_Fragment.OnFragmentInteractionListener,
+                   Kategorie_Fragment.OnFragmentInteractionListener,
+                   Startseite_Fragment.OnFragmentInteractionListener,
                    Faq_Fragment.OnFragmentInteractionListener,
-                   OptionenFragment.OnFragmentInteractionListener,
-                   Element_Preview.OnFragmentInteractionListener{
+                   Optionen_Fragment.OnFragmentInteractionListener,
+                   Element_Preview.OnFragmentInteractionListener {
 
 
     /**
@@ -68,89 +60,60 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(id.drawer_layout));
     }
 
+    public void navigate( Fragment fragment, String title){
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(id.container,fragment)
+                .commit();
+        setTitle(title);
+    }
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        switch(position){
+
+        EventList eventList = EventList.getAllEvents();
+        switch (position) {
             case 0:
-                    fragmentManager.beginTransaction()
-                            .replace(id.container, StartseiteFragment.newInstance("test1","test2"))
-                            .commit();
-                    break;
-
-
+                navigate(Startseite_Fragment.newInstance("test1", "test2"),getString(string.title_section1));
+                break;
             case 1:
-                    fragmentManager.beginTransaction()
-                            .replace(id.container, Pers_Suche_Fragment.newInstance("test1","test2"))
-                            .commit();
-                            break;
+                navigate( Filter_Suche_Fragment.newInstance("test1", "test2"),getString(string.title_section2));
+                break;
             case 2:
-                    fragmentManager.beginTransaction()
-                            .replace(id.container, KategorieFragment.newInstance("test1","test2"))
-                            .commit();
-                    break;
+                navigate(Kategorie_Fragment.newInstance( this),getString(string.title_section3));
+                break;
             case 3:
-                fragmentManager.beginTransaction()
-                        .replace(id.container, FavoritenFragment.newInstance("test1","test2"))
-                        .commit();
+                navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstFavorit()),getString(string.title_section4));
                 break;
             case 4:
-                fragmentManager.beginTransaction()
-                        .replace(id.container, EmpfehlungenFragment.newInstance("test1","test2"))
-                        .commit();
+                navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstEmpfehlung()),getString(string.title_section5));
                 break;
             case 5:
-                fragmentManager.beginTransaction()
-                        .replace(id.container, Faq_Fragment.newInstance("test1","test2"))
-                        .commit();
+                navigate(Faq_Fragment.newInstance("test1", "test2"),getString(string.title_section6));
                 break;
             case 6:
-                fragmentManager.beginTransaction()
-                        .replace(id.container, OptionenFragment.newInstance("test1","test2"))
-                        .commit();
+               navigate(Optionen_Fragment.newInstance("test1", "test2"),getString(string.title_section7));
                 break;
 
             default:
-                fragmentManager.beginTransaction()
-                        .replace(id.container, PlaceholderFragment.newInstance(position + 1))
-                        .commit();
+                navigate(Startseite_Fragment.newInstance("test1", "test2"),getString(string.title_section1));
                 break;
         }
 
     }
 
-    public void onSectionAttached(int number) {
-        switch (number) {
-            case 1:
-                mTitle = getString(string.title_section1);
-                break;
-            case 2:
-                mTitle = getString(string.title_section2);
-                break;
-            case 3:
-                mTitle = getString(string.title_section3);
-                break;
-            case 4:
-                mTitle = getString(string.title_section4);
-                break;
-            case 5:
-                mTitle = getString(string.title_section5);
-                break;
-            case 6:
-                mTitle = getString(string.title_section6);
-                break;
-            case 7:
-                mTitle = getString(string.title_section7);
-                break;
-        }
-    }
 
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setTitle(mTitle);
+
+    }
+
+    public void setTitle(CharSequence title) {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle(title);
     }
 
 
@@ -165,7 +128,7 @@ public class MainActivity extends ActionBarActivity
             return true;
         }
         MenuItem searchItem = menu.findItem(id.action_search);
-        if(searchItem != null) {
+        if (searchItem != null) {
             SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
 
 
@@ -192,7 +155,6 @@ public class MainActivity extends ActionBarActivity
         int id = item.getItemId();
 
 
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -210,16 +172,9 @@ public class MainActivity extends ActionBarActivity
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
         private static final String ARG_SECTION_NUMBER = "section_number";
 
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
+
         public static PlaceholderFragment newInstance(int sectionNumber) {
             PlaceholderFragment fragment = new PlaceholderFragment();
             Bundle args = new Bundle();
@@ -241,42 +196,8 @@ public class MainActivity extends ActionBarActivity
         @Override
         public void onAttach(Activity activity) {
             super.onAttach(activity);
-            ((MainActivity) activity).onSectionAttached(
-                    getArguments().getInt(ARG_SECTION_NUMBER));
         }
+
+
     }
-
-
- /*   public class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView parent, View view, int position, long id) {
-            selectItem(position);
-        }
-
-
-        private void selectItem(int position) {
-            // Create a new fragment and specify the planet to show based on position
-            android.app.Fragment fragment = new Pers_Suche_Fragment();
-            Bundle args = new Bundle();
-            //   args.putInt(Pers_Suche_Fragment.ARG_PLANET_NUMBER, position);
-            fragment.setArguments(args);
-
-            // Insert the fragment by replacing any existing fragment
-            android.app.FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
-                    .replace(R.id.container, fragment)
-                    .commit();
-
-            // Highlight the selected item, update the title, and close the drawer
-            mDrawerList.setItemChecked(position, true);
-            setTitle("Suche");
-            mDrawerLayout.closeDrawer(mDrawerList);
-        }
-
-         public void setTitle(CharSequence title) {
-            mTitle = title;
-            getActionBar().setTitle(mTitle);
-        }
-    }*/
-
 }

@@ -24,7 +24,7 @@ import com.mycompany.neuerversuch.dummy.DummyContent;
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class StartseiteFragment extends Fragment implements AbsListView.OnItemClickListener {
+public class Startseite_Fragment extends Fragment implements AbsListView.OnItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,8 +49,8 @@ public class StartseiteFragment extends Fragment implements AbsListView.OnItemCl
     private ListAdapter mAdapter;
 
     // TODO: Rename and change types of parameters
-    public static StartseiteFragment newInstance(String param1, String param2) {
-        StartseiteFragment fragment = new StartseiteFragment();
+    public static Startseite_Fragment newInstance(String param1, String param2) {
+        Startseite_Fragment fragment = new Startseite_Fragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -62,7 +62,7 @@ public class StartseiteFragment extends Fragment implements AbsListView.OnItemCl
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public StartseiteFragment() {
+    public Startseite_Fragment() {
     }
 
     @Override
@@ -99,7 +99,6 @@ public class StartseiteFragment extends Fragment implements AbsListView.OnItemCl
         super.onAttach(activity);
         try {
             mListener = (OnFragmentInteractionListener) activity;
-            ((MainActivity) activity).onSectionAttached(1);
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
