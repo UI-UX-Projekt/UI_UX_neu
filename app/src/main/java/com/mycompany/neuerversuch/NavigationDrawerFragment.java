@@ -22,6 +22,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
  * See the <a href="https://developer.android.com/design/patterns/navigation-drawer.html#Interaction">
@@ -97,21 +99,17 @@ public class NavigationDrawerFragment extends Fragment {
                 selectItem(position);
             }
         });
-        mDrawerListView.setAdapter(new ArrayAdapter<String>(
-                getActionBar().getThemedContext(),
-                //android.R.layout.simple_list_item_activated_1,
-                R.layout.navigation_list_item,
-              // android.R.id.text1,
-                R.id.text1,
-                new String[]{
-                        getString(R.string.title_section1),
-                        getString(R.string.title_section2),
-                        getString(R.string.title_section3),
-                        getString(R.string.title_section4),
-                        getString(R.string.title_section5),
-                        getString(R.string.title_section6),
-                        getString(R.string.title_section7),
-                }));
+        ArrayList<NavigationItem> listNavigation= new ArrayList<NavigationItem>();
+        listNavigation.add(NavigationItem.STARTSEITE);
+        listNavigation.add(NavigationItem.FILTER_SUCHE);
+        listNavigation.add(NavigationItem.KATEGORIEN);
+        listNavigation.add(NavigationItem.EIGENE_FAVORITEN);
+        listNavigation.add(NavigationItem.EMPFEHLUNGEN);
+        listNavigation.add(NavigationItem.EINSTELLUNGEN);
+        listNavigation.add(NavigationItem.HILFE);
+
+        mDrawerListView.setAdapter(new NavigationAdapter(
+                getActionBar().getThemedContext(), listNavigation));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;
     }

@@ -28,8 +28,8 @@ public class MainActivity extends ActionBarActivity
                    Kategorie_Fragment.OnFragmentInteractionListener,
                    Startseite_Fragment.OnFragmentInteractionListener,
                    Faq_Fragment.OnFragmentInteractionListener,
-                   Optionen_Fragment.OnFragmentInteractionListener,
-                   Element_Preview.OnFragmentInteractionListener {
+                   Optionen_Fragment.OnFragmentInteractionListener
+                   {
 
 
     /**
@@ -77,10 +77,10 @@ public class MainActivity extends ActionBarActivity
                 navigate(Startseite_Fragment.newInstance("test1", "test2"),getString(string.title_section1));
                 break;
             case 1:
-                navigate( Filter_Suche_Fragment.newInstance("test1", "test2"),getString(string.title_section2));
+                navigate(Filter_Suche_Fragment.newInstance(),getString(string.title_section2));
                 break;
             case 2:
-                navigate(Kategorie_Fragment.newInstance( this),getString(string.title_section3));
+                navigate(Kategorie_Fragment.newInstance(this),getString(string.title_section3));
                 break;
             case 3:
                 navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstFavorit()),getString(string.title_section4));
@@ -89,12 +89,11 @@ public class MainActivity extends ActionBarActivity
                 navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstEmpfehlung()),getString(string.title_section5));
                 break;
             case 5:
-                navigate(Faq_Fragment.newInstance("test1", "test2"),getString(string.title_section6));
+                navigate(Optionen_Fragment.newInstance("test1", "test2"),getString(string.title_section7));
                 break;
             case 6:
-               navigate(Optionen_Fragment.newInstance("test1", "test2"),getString(string.title_section7));
+                navigate(Faq_Fragment.newInstance("test1", "test2"),getString(string.title_section6));
                 break;
-
             default:
                 navigate(Startseite_Fragment.newInstance("test1", "test2"),getString(string.title_section1));
                 break;

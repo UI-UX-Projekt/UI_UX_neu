@@ -105,5 +105,9 @@ public class Event {
     public String getTageszeit() {
         return tageszeit;
     }
+
+    public void setIstFavorit(boolean istFavorit) {
+        this.istFavorit = istFavorit;
+    }
 }
 

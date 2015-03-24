@@ -4,10 +4,10 @@
     <string name="title_section1">Startseite</string>
     <string name="title_section2">Filter Suche</string>
     <string name="title_section3">Kategorien</string>
-    <string name="title_section4">eigene Favoriten</string>
+    <string name="title_section4">Eigene Favoriten</string>
     <string name="title_section5">Empfehlungen</string>
-    <string name="title_section6">FAQ</string>
-    <string name="title_section7">Optionen</string>
+    <string name="title_section6">Hilfe</string>
+    <string name="title_section7">Einstellungen</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

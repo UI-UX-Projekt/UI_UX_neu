@@ -3,12 +3,23 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="horizontal"
+    android:minHeight="42dp"
     android:background="@drawable/list_item_selector">
-
-        <TextView       android:id="@+id/text1"
-            android:layout_height="fill_parent"
-            android:layout_width="wrap_content"
-            android:textColor="@drawable/list_item_text_selector"
-            android:padding="10sp"  />
+    <ImageView
+        android:id="@+id/kategorie_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:src="@drawable/ic_essen"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"/>
+    <TextView
+        android:id="@+id/kategorie_title"
+        android:layout_height="fill_parent"
+        android:layout_width="wrap_content"
+        android:textColor="@drawable/list_item_text_selector"
+        android:layout_marginTop="8dp"
+        android:textSize="16dp"/>
 
 </LinearLayout>
