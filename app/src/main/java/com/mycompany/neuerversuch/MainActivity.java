@@ -43,6 +43,8 @@ public class MainActivity extends ActionBarActivity
     private CharSequence mTitle;
     private AbsListView mDrawerList;
     private android.support.v4.widget.DrawerLayout mDrawerLayout;
+    private Fragment fragmentBeforeSearch;
+    private Zentrale_Filterung_Fragment searchFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +67,9 @@ public class MainActivity extends ActionBarActivity
                 .replace(id.container,fragment)
                 .commit();
         setTitle(title);
+    }
+    public Fragment getActiveFragment(){
+        return getSupportFragmentManager().findFragmentById(id.container);
     }
 
     @Override
@@ -123,23 +128,47 @@ public class MainActivity extends ActionBarActivity
             // decide what to show in the action bar.
             getMenuInflater().inflate(R.menu.main, menu);
             restoreActionBar();
+            MenuItem searchItem = menu.findItem(id.action_search);
+            if (searchItem != null) {
+                final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+                searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+                    @Override
+                    public boolean onClose() {
+                       return onSearchClose();
+                    }
+                });
+                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                    @Override
+                    public boolean onQueryTextSubmit(String query) {
+                        return onSearch(query);
+                    }
+
+                    @Override
+                    public boolean onQueryTextChange(String newText) {
+                        return onSearch(newText);
+                    }
+                });
+                MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
+                    @Override
+                    public boolean onMenuItemActionExpand(MenuItem menuItem) {return true;}
+
+                    @Override
+                    public boolean onMenuItemActionCollapse(MenuItem menuItem) {return true;}
+                });
+            }
+
+
             return true;
         }
         MenuItem searchItem = menu.findItem(id.action_search);
         if (searchItem != null) {
             final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
-            searchView.setIconifiedByDefault(false);
-            searchView.setIconified(false);
             MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
                 @Override
-                public boolean onMenuItemActionExpand(MenuItem menuItem) {
-                    return true;
-                }
+                public boolean onMenuItemActionExpand(MenuItem menuItem) {return true;}
 
                 @Override
-                public boolean onMenuItemActionCollapse(MenuItem menuItem) {
-                    return true;
-                }
+                public boolean onMenuItemActionCollapse(MenuItem menuItem) {return true;}
             });
         }
         return super.onCreateOptionsMenu(menu);
@@ -164,6 +193,27 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onFragmentInteraction(String id) {
 
+    }
+
+    public boolean onSearch(String searchString){
+
+        if(searchFragment == null){
+            fragmentBeforeSearch = getActiveFragment();
+        }
+        EventList eventList = EventList.getAllEvents();
+        searchFragment = Zentrale_Filterung_Fragment.newInstance(eventList.filteredByText(searchString));
+        navigate(searchFragment,getSupportActionBar().getTitle().toString());
+
+        return eventList.size() > 0;
+    }
+    public boolean onSearchClose(){
+        searchFragment = null;
+        if(fragmentBeforeSearch != null){
+            navigate(fragmentBeforeSearch, getSupportActionBar().getTitle().toString());
+        }else {
+            navigate(Startseite_Fragment.newInstance("test1", "test2"), getString(string.title_section1));
+        }
+        return false;
     }
 
 }
