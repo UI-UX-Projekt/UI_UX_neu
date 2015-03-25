@@ -31,38 +31,30 @@ public class Filter_Suche_Fragment extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //Elemente der gui referenzieren
-        EditText standort = (EditText) this.getActivity().findViewById(R.id.standort);
-        EditText umkreis = (EditText) this.getActivity().findViewById(R.id.umkreis);
-        EditText tageszeit = (EditText) this.getActivity().findViewById(R.id.tageszeit);
-        EditText datum = (EditText) this.getActivity().findViewById(R.id.datum);
-        Spinner begleitung = (Spinner) this.getActivity().findViewById(R.id.spinnerBegleitung); //alleine, freunde, partner, familie
-        EditText minPreis = (EditText) this.getActivity().findViewById(R.id.minPreis);
-        EditText maxPreis = (EditText) this.getActivity().findViewById(R.id.maxPreis);
+        EditText standort = (EditText) this.getActivity().findViewById(R.id.standort_edit);
+        EditText datum = (EditText) this.getActivity().findViewById(R.id.datum_edit);
+        Spinner begleitung = (Spinner) this.getActivity().findViewById(R.id.spinnerBegleitung);
+        EditText minPreis = (EditText) this.getActivity().findViewById(R.id.min_preis);
+        EditText maxPreis = (EditText) this.getActivity().findViewById(R.id.max_preis);
         Button btnClear = (Button) this.getActivity().findViewById(R.id.btnClear);
-        Button btnStart = (Button) this.getActivity().findViewById(R.id.btnStart);
+        Button btnSearch= (Button) this.getActivity().findViewById(R.id.btnSearch);
 
-        //listener auf buttons hinzufügen
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 fillElements(v);
-
-
             }
         });
 
     }
+
     public static void fillElements(View v){
-        //Referenzieren
-        EditText standort = (EditText) v.findViewById(R.id.standort);
-        EditText umkreis = (EditText) v.findViewById(R.id.umkreis);
-        EditText tageszeit = (EditText) v.findViewById(R.id.tageszeit);
-        EditText datum = (EditText) v.findViewById(R.id.datum);
+        EditText standort = (EditText) v.findViewById(R.id.standort_edit);
+        EditText datum = (EditText) v.findViewById(R.id.datum_edit);
         Spinner begleitung = (Spinner) v.findViewById(R.id.spinnerBegleitung);
-        EditText minPreis = (EditText) v.findViewById(R.id.minPreis);
-        EditText maxPreis = (EditText) v.findViewById(R.id.maxPreis);
-        //StandortDaten auslesen
-        //standort des systems auslesen
+        EditText minPreis = (EditText) v.findViewById(R.id.min_preis);
+        EditText maxPreis = (EditText) v.findViewById(R.id.max_preis);
+        /*
         LocationManager locationManager = (LocationManager)   v.getContext().getSystemService(Context.LOCATION_SERVICE);
         //Adresse auslesen
         Geocoder gc = new Geocoder(v.getContext());
@@ -73,6 +65,7 @@ public class Filter_Suche_Fragment extends Fragment {
         } catch (IOException e) {
             //handle exception
         }
+
         Address address = addressList.get(0);
         String plz = address.getPostalCode();
         //aktuelle Zeit + Datum auslesen
@@ -80,12 +73,8 @@ public class Filter_Suche_Fragment extends Fragment {
         Date date = cal.getTime();
         //elemente der gui mit default-Text füllen
         standort.setText(plz);
-        umkreis.setText("5");
-        tageszeit.setText("00:00");
-        datum.setText("01.01.2015");
+        datum.setText("01.01.2015"); */
 
-        minPreis.setText("");
-        maxPreis.setText("");
         String[] items = new String[4];
         items[0] ="Alleine";
         items[1] ="Freunde";
