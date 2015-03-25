@@ -62,6 +62,16 @@ public class EventList extends ArrayList<Event>{
         return matchedEventList;
     }
 
+    public EventList filteredByKategorie(List<Kategorie> listKategorie){
+        EventList matchedEventList = new EventList();
+        for(Event event : this){
+            if(listKategorie.contains(event.getKategorie())){
+                matchedEventList.add(event);
+            }
+        }
+        return matchedEventList;
+    }
+
     public EventList filteredByIstFavorit(){
         EventList matchedEventList = new EventList();
         for(Event event : this){
