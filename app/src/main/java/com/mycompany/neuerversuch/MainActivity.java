@@ -82,7 +82,7 @@ public class MainActivity extends ActionBarActivity
                 navigate(Startseite_Fragment.newInstance("test1", "test2"),getString(string.title_section1));
                 break;
             case 1:
-                navigate(Filter_Suche_Fragment.newInstance(),getString(string.title_section2));
+                navigate(Filter_Suche_Fragment.newInstance(this),getString(string.title_section2));
                 break;
             case 2:
                 navigate(Kategorie_Fragment.newInstance(this),getString(string.title_section3));
