@@ -51,7 +51,7 @@
             android:id="@+id/datum"
             android:textSize="15dp"
             android:textColor="#ff000000"
-            android:layout_marginTop="90dp"
+            android:layout_marginTop="100dp"
             android:layout_marginLeft="15dp"
             android:layout_gravity="left|top" />
 
@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/datum_edit"
             android:hint="Datum"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="90dp"
             android:layout_marginLeft="150dp"
             android:textSize="15dp"
             android:textColor="#ff000000"
@@ -74,7 +74,7 @@
             android:text="Tageszeit"
             android:textColor="#ff000000"
             android:textSize="15dp"
-            android:layout_marginTop="135dp"
+            android:layout_marginTop="155dp"
             android:layout_marginLeft="15dp"
             android:layout_gravity="left|top" />
 
@@ -87,7 +87,7 @@
             android:background="#ffc9a35a"
             android:maxWidth="60dp"
             android:maxHeight="15dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="140dp"
             android:layout_marginLeft="150dp"
             android:layout_gravity="left|top"
             />
@@ -101,7 +101,7 @@
             android:background="#ffc9a35a"
             android:maxWidth="60dp"
             android:maxHeight="15dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="140dp"
             android:layout_marginLeft="210dp"
             android:layout_gravity="left|top"
             />
@@ -114,7 +114,7 @@
             android:textSize="10dp"
             android:maxWidth="60dp"
             android:maxHeight="15dp"
-            android:layout_marginTop="120dp"
+            android:layout_marginTop="140dp"
             android:layout_marginLeft="270dp"
             android:layout_gravity="left|top"
             />
@@ -126,7 +126,7 @@
             android:text="mit wem"
             android:textSize="15dp"
             android:textColor="#ff000000"
-            android:layout_marginTop="190dp"
+            android:layout_marginTop="220dp"
             android:layout_marginLeft="15dp"
             android:layout_gravity="left|top" />
 
@@ -134,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/spinnerBegleitung"
-            android:layout_marginTop="180dp"
+            android:layout_marginTop="210dp"
             android:layout_marginLeft="150dp"
             android:popupBackground="#ffc9a35a"
             android:textSize="15dp"
@@ -148,7 +148,7 @@
             android:text="Preis"
             android:textSize="15dp"
             android:textColor="#ff000000"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="270dp"
             android:layout_marginLeft="15dp"
             android:layout_gravity="left|top" />
 
@@ -157,7 +157,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/min_preis"
             android:hint="von"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="260dp"
             android:layout_marginLeft="150dp"
             android:textSize="15dp"
             android:textColor="#ff000000"
@@ -171,7 +171,7 @@
             android:text="-"
             android:textSize="15dp"
             android:textColor="#ff000000"
-            android:layout_marginTop="230dp"
+            android:layout_marginTop="270dp"
             android:layout_marginLeft="210dp"
             android:layout_gravity="left|top" />
 
@@ -180,7 +180,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/max_preis"
             android:hint="bis"
-            android:layout_marginTop="220dp"
+            android:layout_marginTop="260dp"
             android:layout_marginLeft="240dp"
             android:textSize="15dp"
             android:textColor="#ff000000"
@@ -194,7 +194,7 @@
             android:text="Interessen"
             android:textSize="15dp"
             android:textColor="#ff000000"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="320dp"
             android:layout_marginLeft="15dp"
             android:layout_gravity="left|top" />
 
@@ -205,7 +205,7 @@
             android:textSize="10dp"
             android:textColor="#ff000000"
             android:text="Essen und Trinken"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="320dp"
             android:layout_marginLeft="150dp"
             android:layout_gravity="left|top" />
 
@@ -216,7 +216,7 @@
             android:textSize="10dp"
             android:textColor="#ff000000"
             android:text="Kultur"
-            android:layout_marginTop="295dp"
+            android:layout_marginTop="345dp"
             android:layout_marginLeft="150dp"
             android:layout_gravity="left|top" />
 
@@ -227,7 +227,7 @@
             android:textSize="10dp"
             android:textColor="#ff000000"
             android:text="Messe"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="370dp"
             android:layout_marginLeft="150dp"
             android:layout_gravity="left|top" />
 
@@ -238,7 +238,7 @@
             android:textSize="10dp"
             android:textColor="#ff000000"
             android:text="Musik"
-            android:layout_marginTop="345dp"
+            android:layout_marginTop="395dp"
             android:layout_marginLeft="150dp"
             android:layout_gravity="left|top" />
 
@@ -249,7 +249,7 @@
             android:textSize="10dp"
             android:textColor="#ff000000"
             android:text="Natur"
-            android:layout_marginTop="270dp"
+            android:layout_marginTop="345dp"
             android:layout_marginLeft="270dp"
             android:layout_gravity="left|top" />
 
@@ -260,7 +260,7 @@
             android:textSize="10dp"
             android:textColor="#ff000000"
             android:text="Party"
-            android:layout_marginTop="295dp"
+            android:layout_marginTop="370dp"
             android:layout_marginLeft="270dp"
             android:layout_gravity="left|top" />
 
@@ -271,7 +271,7 @@
             android:textSize="10dp"
             android:textColor="#ff000000"
             android:text="Sport"
-            android:layout_marginTop="320dp"
+            android:layout_marginTop="395dp"
             android:layout_marginLeft="270dp"
             android:layout_gravity="left|top" />
 
@@ -287,7 +287,7 @@
             android:width="80dp"
             android:maxWidth="80dp"
             android:maxHeight="20dp"
-            android:layout_marginTop="380dp"
+            android:layout_marginTop="450dp"
             android:layout_marginLeft="50dp"
             android:layout_gravity="left|top"
         />
@@ -299,7 +299,7 @@
             android:text="Suchen"
             android:textSize="15dp"
             android:background="#ffc9a35a"
-            android:layout_marginTop="380dp"
+            android:layout_marginTop="450dp"
             android:maxWidth="80dp"
             android:height="20dp"
             android:width="80dp"

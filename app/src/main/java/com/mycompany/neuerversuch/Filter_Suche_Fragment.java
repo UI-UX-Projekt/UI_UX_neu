@@ -78,7 +78,7 @@ public class Filter_Suche_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 EventList eventList = EventList.getAllEvents();
-                List<Kategorie> listKategorie = null;
+                List<Kategorie> listKategorie = new ArrayList<Kategorie>();
                 if(cbEssen.isChecked()){
                     listKategorie.add(Kategorie.ESSEN);
                 }
@@ -107,26 +107,36 @@ public class Filter_Suche_Fragment extends Fragment {
                     listKategorie.add(Kategorie.SPORT);
                 }
 
-                if(listKategorie!=null) {
-                    eventList.filteredByKategorie(listKategorie);
+                if(listKategorie.size()>0) {
+                    eventList=eventList.filteredByKategorie(listKategorie);
                 }
 
                 if(!standort.getText().toString().equals("")){
-                    eventList.filteredByOrt(standort.getText().toString());
+                    eventList=eventList.filteredByOrt(standort.getText().toString());
                 }
 
                 if(!datum.getText().toString().equals("")){
-                    eventList.filteredByDatum(datum.getText().toString());
+                    eventList=eventList.filteredByDatum(datum.getText().toString());
                 }
 
                 if(!tageszeit.equals("")){
-                    eventList.filteredByTageszeit(tageszeit);
+                    eventList=eventList.filteredByTageszeit(tageszeit);
                 }
 
                 if(!(minPreis.getText().toString().equals("")&& maxPreis.getText().toString().equals(""))){
-                    double preisuntergrenze=Double.parseDouble(minPreis.getText().toString());
+                    double preisuntergrenze;
                     double preisobergrenze=Double.parseDouble(maxPreis.getText().toString());
-                    eventList.filteredByPreis(preisuntergrenze,preisobergrenze);
+                    if(minPreis.getText().toString().equals("")){
+                        preisuntergrenze=0;
+                    }else {
+                        preisuntergrenze=Double.parseDouble(minPreis.getText().toString());
+                    }
+
+                    if(maxPreis.getText().toString().equals("")){
+                        preisobergrenze= Double.MAX_VALUE;
+                    }
+
+                    eventList=eventList.filteredByPreis(preisuntergrenze,preisobergrenze);
 
                 }
 

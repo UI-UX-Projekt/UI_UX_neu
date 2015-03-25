@@ -109,7 +109,7 @@ public class EventList extends ArrayList<Event>{
     public EventList filteredByOrt(String ort){
         EventList matchedEventList = new EventList();
         for(Event event : this){
-            if(event.getOrt()==ort){
+            if(event.getOrt().equalsIgnoreCase(ort)){
                 matchedEventList.add(event);
             }
         }
@@ -119,7 +119,7 @@ public class EventList extends ArrayList<Event>{
     public EventList filteredByDatum(String datum){
         EventList matchedEventList = new EventList();
         for(Event event : this){
-            if(event.getDatum()==datum || event.getDatum()==""){
+            if(event.getDatum().equals(datum) || event.getDatum().equals("")){
                 matchedEventList.add(event);
             }
         }
@@ -129,7 +129,7 @@ public class EventList extends ArrayList<Event>{
     public EventList filteredByTageszeit(String tageszeit) {
         EventList matchedEventList = new EventList();
         for (Event event : this) {
-            if (event.getTageszeit() == tageszeit) {
+            if (event.getTageszeit().equalsIgnoreCase(tageszeit)) {
                 matchedEventList.add(event);
             }
         }
