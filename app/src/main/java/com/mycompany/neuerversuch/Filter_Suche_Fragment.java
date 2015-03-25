@@ -125,7 +125,7 @@ public class Filter_Suche_Fragment extends Fragment {
 
                 if(!(minPreis.getText().toString().equals("")&& maxPreis.getText().toString().equals(""))){
                     double preisuntergrenze;
-                    double preisobergrenze=Double.parseDouble(maxPreis.getText().toString());
+                    double preisobergrenze;
                     if(minPreis.getText().toString().equals("")){
                         preisuntergrenze=0;
                     }else {
@@ -134,7 +134,10 @@ public class Filter_Suche_Fragment extends Fragment {
 
                     if(maxPreis.getText().toString().equals("")){
                         preisobergrenze= Double.MAX_VALUE;
+                    }else{
+                        preisobergrenze=Double.parseDouble(maxPreis.getText().toString());
                     }
+
 
                     eventList=eventList.filteredByPreis(preisuntergrenze,preisobergrenze);
 
