@@ -1,18 +1,14 @@
 package com.mycompany.neuerversuch;
 
-import android.app.Activity;
 import android.net.Uri;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AbsListView;
 import android.widget.SearchView;
@@ -37,6 +33,7 @@ public class MainActivity extends ActionBarActivity
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
 
+
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -45,15 +42,21 @@ public class MainActivity extends ActionBarActivity
     private android.support.v4.widget.DrawerLayout mDrawerLayout;
     private Fragment fragmentBeforeSearch;
     private Zentrale_Filterung_Fragment searchFragment;
+    private MainNavigationManager mainNavigationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mainNavigationManager = new MainNavigationManager(this);
+
         setContentView(layout.activity_main);
+
+
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(id.navigation_drawer);
-        mTitle = getTitle();
+           mTitle = getTitle();
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -61,46 +64,44 @@ public class MainActivity extends ActionBarActivity
                 (DrawerLayout) findViewById(id.drawer_layout));
     }
 
-    public void navigate( Fragment fragment, String title){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(id.container,fragment)
-                .commit();
-        setTitle(title);
-    }
     public Fragment getActiveFragment(){
         return getSupportFragmentManager().findFragmentById(id.container);
     }
 
     @Override
+    public void onBackPressed() {
+        mainNavigationManager.back();
+    }
+
+   @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
 
         EventList eventList = EventList.getAllEvents();
         switch (position) {
             case 0:
-                navigate(Zentrale_Filterung_Fragment.newInstance(eventList),getString(string.title_section1));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList),getString(string.title_section1));
                 break;
             case 1:
-                navigate(Filter_Suche_Fragment.newInstance(this),getString(string.title_section2));
+                mainNavigationManager.navigate(Filter_Suche_Fragment.newInstance(mainNavigationManager), getString(string.title_section2));
                 break;
             case 2:
-                navigate(Kategorie_Fragment.newInstance(this),getString(string.title_section3));
+                mainNavigationManager.navigate(Kategorie_Fragment.newInstance(mainNavigationManager), getString(string.title_section3));
                 break;
             case 3:
-                navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstFavorit()),getString(string.title_section4));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstFavorit()), getString(string.title_section4));
                 break;
             case 4:
-                navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstEmpfehlung()),getString(string.title_section5));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstEmpfehlung()), getString(string.title_section5));
                 break;
             case 5:
-                navigate(Optionen_Fragment.newInstance("test1", "test2"),getString(string.title_section7));
+                mainNavigationManager.navigate(Optionen_Fragment.newInstance("test1", "test2"), getString(string.title_section7));
                 break;
             case 6:
-                navigate(Faq_Fragment.newInstance("test1", "test2"),getString(string.title_section6));
+                mainNavigationManager.navigate(Faq_Fragment.newInstance("test1", "test2"), getString(string.title_section6));
                 break;
             default:
-                navigate(Startseite_Fragment.newInstance("test1", "test2"),getString(string.title_section1));
+                mainNavigationManager.navigate(Startseite_Fragment.newInstance("test1", "test2"), getString(string.title_section1));
                 break;
         }
 
@@ -175,17 +176,6 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public void onFragmentInteraction(Uri uri) {
 
     }
@@ -202,16 +192,16 @@ public class MainActivity extends ActionBarActivity
         }
         EventList eventList = EventList.getAllEvents();
         searchFragment = Zentrale_Filterung_Fragment.newInstance(eventList.filteredByText(searchString));
-        navigate(searchFragment,getSupportActionBar().getTitle().toString());
+        mainNavigationManager.navigateWithoutHistory(searchFragment, getSupportActionBar().getTitle().toString());
 
         return eventList.size() > 0;
     }
     public boolean onSearchClose(){
         searchFragment = null;
         if(fragmentBeforeSearch != null){
-            navigate(fragmentBeforeSearch, getSupportActionBar().getTitle().toString());
+            mainNavigationManager.navigateWithoutHistory(fragmentBeforeSearch, getSupportActionBar().getTitle().toString());
         }else {
-            navigate(Startseite_Fragment.newInstance("test1", "test2"), getString(string.title_section1));
+            mainNavigationManager.navigateWithoutHistory(Startseite_Fragment.newInstance("test1", "test2"), getString(string.title_section1));
         }
         return false;
     }

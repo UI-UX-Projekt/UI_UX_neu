@@ -4,8 +4,6 @@ import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,11 +30,11 @@ public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemCl
     private OnFragmentInteractionListener mListener;
     private KategorieAdapter mAdapter;
 
-    private static MainActivity activity;
+    private MainNavigationManager mainNavigationManager;
 
-    public static Kategorie_Fragment newInstance(MainActivity act) {
+    public static Kategorie_Fragment newInstance( MainNavigationManager mainNavigationManager) {
         Kategorie_Fragment fragment = new Kategorie_Fragment();
-        activity=act;
+        fragment.mainNavigationManager = mainNavigationManager;
         return fragment;
     }
 
@@ -102,33 +100,31 @@ public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemCl
         EventList eventList=EventList.getAllEvents();
         switch(position){
             case 0:
-                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.ESSEN)),getString(R.string.title_kategorie1));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.ESSEN)), getString(R.string.title_kategorie1));
                 break;
             case 1:
-                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.KULTUR)),getString(R.string.title_kategorie2));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.KULTUR)), getString(R.string.title_kategorie2));
                 break;
             case 2:
-                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.MESSE)),getString(R.string.title_kategorie3));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.MESSE)), getString(R.string.title_kategorie3));
                 break;
             case 3:
-                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.MUSIK)),getString(R.string.title_kategorie4));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.MUSIK)), getString(R.string.title_kategorie4));
                 break;
             case 4:
-                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.NATUR)),getString(R.string.title_kategorie5));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.NATUR)), getString(R.string.title_kategorie5));
                 break;
             case 5:
-                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.PARTY)),getString(R.string.title_kategorie6));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.PARTY)), getString(R.string.title_kategorie6));
                 break;
             case 6:
-                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.SPORT)),getString(R.string.title_kategorie7));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.SPORT)), getString(R.string.title_kategorie7));
                 break;
         }
 
     }
 
-    public void setTitle(CharSequence title){
-        activity.getActionBar().setTitle(title);
-    }
+
 
     public interface OnFragmentInteractionListener {
         public void onFragmentInteraction(Uri uri);
