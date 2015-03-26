@@ -4,9 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by d056969 on 25.03.2015.
- */
+
 public class EventComparator implements Comparator<Event> {
     private Map<Event, Double> base;
     public EventComparator(Map<Event, Double> map) {

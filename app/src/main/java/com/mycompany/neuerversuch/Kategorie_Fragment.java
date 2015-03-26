@@ -45,17 +45,7 @@ public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemCl
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         List<Kategorie> items = new ArrayList<Kategorie>();
-        items.add(Kategorie.ESSEN);
-        items.add(Kategorie.KULTUR);
-        items.add(Kategorie.MESSE);
-        items.add(Kategorie.MUSIK);
-        items.add(Kategorie.NATUR);
-        items.add(Kategorie.PARTY);
-        items.add(Kategorie.SPORT);
-
-
-        mAdapter = new KategorieAdapter(getActivity(),  items);
+         mAdapter = new KategorieAdapter(getActivity());
     }
 
     @Override
@@ -98,30 +88,8 @@ public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemCl
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         EventList eventList=EventList.getAllEvents();
-        switch(position){
-            case 0:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.ESSEN)), getString(R.string.title_kategorie1));
-                break;
-            case 1:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.KULTUR)), getString(R.string.title_kategorie2));
-                break;
-            case 2:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.MESSE)), getString(R.string.title_kategorie3));
-                break;
-            case 3:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.MUSIK)), getString(R.string.title_kategorie4));
-                break;
-            case 4:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.NATUR)), getString(R.string.title_kategorie5));
-                break;
-            case 5:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.PARTY)), getString(R.string.title_kategorie6));
-                break;
-            case 6:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(Kategorie.SPORT)), getString(R.string.title_kategorie7));
-                break;
-        }
-
+        Kategorie selectedKategorie = Kategorie.getList().get(position);
+        mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(selectedKategorie),mainNavigationManager), selectedKategorie.getText());
     }
 
 

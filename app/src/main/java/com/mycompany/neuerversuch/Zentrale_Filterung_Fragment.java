@@ -41,10 +41,12 @@ public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
-    private ListAdapter mAdapter;
+    private EventAdapter mAdapter;
+    private MainNavigationManager mainNavigationManager;
 
-    public static Zentrale_Filterung_Fragment newInstance(EventList eventList) {
+    public static Zentrale_Filterung_Fragment newInstance(EventList eventList,MainNavigationManager mainNavigationManager) {
         Zentrale_Filterung_Fragment fragment = new Zentrale_Filterung_Fragment();
+        fragment.mainNavigationManager = mainNavigationManager;
         fragment.setEventList(eventList);
         return fragment;
     }
@@ -53,8 +55,6 @@ public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-
-
     public Zentrale_Filterung_Fragment() {
 
     }
@@ -68,32 +68,18 @@ public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView
         super.onCreate(savedInstanceState);
 
 
-        EventAdapter adapter=new EventAdapter(getActivity(),eventList);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-
-        // Create the adapter to convert the array to views
-        EventAdapter adapter = new EventAdapter(getActivity(),eventList);
-        // Attach the adapter to a ListView
-        ListView listView = (ListView) getView().findViewById(R.id.fav_list);
-        if(listView == null){
-
-        }
-        listView.setAdapter(adapter);
+        mAdapter=new EventAdapter(getActivity(),eventList);
 
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fav_fragment_item, container, false);
+        View view = inflater.inflate(R.layout.startseite_fragment_item, container, false);
 
         // Set the adapter
-        mListView = (AbsListView) view.findViewById(R.id.fav_list);
+        mListView = (AbsListView) view.findViewById(android.R.id.list);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
@@ -122,11 +108,10 @@ public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (null != mListener) {
-            // Notify the active callbacks interface (the activity, if the
-            // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
-        }
+
+         Event event = mAdapter.getItem(position);
+         mainNavigationManager.navigate( Detail_Fragment.newInstance(event),event.getTitel().toString());
+
     }
 
 

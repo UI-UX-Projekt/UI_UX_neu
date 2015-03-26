@@ -104,10 +104,10 @@ public class EventList extends ArrayList<Event>{
         return matchedEventList;
     }
 
-    public EventList filteredByTageszeit(String tageszeit) {
+    public EventList filteredByTageszeit(Tageszeit tageszeit) {
         EventList matchedEventList = new EventList();
         for (Event event : this) {
-            if (event.getTageszeit().equalsIgnoreCase(tageszeit)) {
+            if (event.getTageszeit().isValidFor(tageszeit)) {
                 matchedEventList.add(event);
             }
         }

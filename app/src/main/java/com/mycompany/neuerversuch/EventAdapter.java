@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -31,6 +32,7 @@ public class EventAdapter extends ArrayAdapter<Event> {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.event_list_item, parent, false);
                 }
                 // Get Reference to Elements in View
+
                 TextView name = (TextView) convertView.findViewById(R.id.nameOfEvent);
                 ImageView iconEvent = (ImageView) convertView.findViewById(R.id.imageView);
                 TextView shortDescription = (TextView) convertView.findViewById(R.id.shortDescription);
@@ -59,4 +61,5 @@ public class EventAdapter extends ArrayAdapter<Event> {
                 // Return the completed view to render on screen
                 return convertView;
         }
+
 }
