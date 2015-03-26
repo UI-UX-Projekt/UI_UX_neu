@@ -47,7 +47,7 @@ public class EventFactory {
                 fill(Gruppe.FAMILIE, Gruppe.FREUNDE, Gruppe.PARTNER) //listGruppe
         ));
 
-        eventListe.add(new Event (R.drawbale.ic_oxford, //https://www.facebook.com/267165350015397/photos/a.267168930015039.65403.267165350015397/403382409727023/?type=1&theater
+        eventListe.add(new Event (R.drawable.ic_oxford,
                 "Oxford Café",
                 "",
                 "10:00-02:00",
@@ -81,39 +81,7 @@ public class EventFactory {
                 "abends",
                 fill(Gruppe.FAMILIE, Gruppe.FREUNDE, Gruppe.PARTNER))); //listGruppe
 
-        eventListe.add(new Event(
-                R.drawable.ic_com15,
-                "COM15",
-                "13.04.2015-16.04.2015",
-                "09:00-18:00",
-                "Messe Karlsruhe / dm-arena",
-                "COM15, die Messe der Fiducia",
-                0,
-                0,
-                Kategorie.MESSE,
-                50.00,
-                false,
-                false,
-                "ganztags",
-                fill(Gruppe.FAMILIE, Gruppe.FREUNDE, Gruppe.PARTNER))); //listGruppe
 
-        eventListe.add(new Event(
-                R.drawable.ic_the_australian_pink_floyd,
-                "The Australian Pink Floyd",
-                "02.05.2015",
-                "20:30",
-                "Schwarzwaldhalle Karlsruhe",
-                "Die weltweit erfolgreichste Pink Floyd Tribute-Band kommt 2015 erneut auf große Tour!",
-                "http://www.ticketonline.de/the-australian-pink-floyd-show-tickets-karlsruhe.html?affiliate=2TO&doc=artistPages/tickets&fun=artist&action=tickets&key=1135535$4055434",
-                "99",
-                "1",
-                Kategorie.MUSIK,
-                60.54,
-                false,
-                true,
-                "abends",
-                fill(Gruppe.FAMILIE, Gruppe.FREUNDE, Gruppe.PARTNER //listGruppe
-                )));
 
         return  eventListe;
     }
