@@ -130,8 +130,8 @@ public class Filter_Suche_Fragment extends Fragment {
                     eventList=eventList.filteredByPreis(preisuntergrenze,preisobergrenze);
 
                 }
-                if(begleitung.getSelectedItemPosition()!=0){
-                    Gruppe gruppe = Gruppe.getAll().get(begleitung.getSelectedItemPosition()-1);
+                if(begleitung.getSelectedItemPosition() > 0){
+                    Gruppe gruppe = Gruppe.getAll().get(begleitung.getSelectedItemPosition());
                     eventList=eventList.filteredByGruppe(gruppe);
                 }
                 mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList), getString(R.string.filter_Suche));
@@ -194,10 +194,7 @@ public class Filter_Suche_Fragment extends Fragment {
 
     public void addSpinnerItems(){
         begleitung = (Spinner) this.getActivity().findViewById(R.id.spinnerBegleitung);
-        List<String> list = new ArrayList<String>();
-        list.add("Bitte auswählen");
-        list.addAll(Gruppe.getAllAsString());
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,list);
+        GruppeAdapter dataAdapter = new GruppeAdapter(getActivity());
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         begleitung.setAdapter(dataAdapter);
 

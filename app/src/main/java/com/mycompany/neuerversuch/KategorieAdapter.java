@@ -10,17 +10,15 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by D060610 on 22.03.2015.
- */
+
 public class KategorieAdapter extends ArrayAdapter<Kategorie> {
     private final Context context;
     private final List<Kategorie> listKategorie;
 
-    public KategorieAdapter(Context context, List<Kategorie> listKategorie) {
-        super(context,R.layout.kategorie_list_item, listKategorie);
+    public KategorieAdapter(Context context) {
+        super(context,R.layout.kategorie_list_item, Kategorie.getList());
         this.context=context;
-        this.listKategorie=listKategorie;
+        listKategorie = Kategorie.getList();
     }
 
     @Override

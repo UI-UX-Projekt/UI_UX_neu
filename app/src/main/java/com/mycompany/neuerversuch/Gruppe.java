@@ -8,6 +8,7 @@ import java.util.List;
  * Created by D060610 on 24.03.2015.
  */
 public class Gruppe  {
+    public static final Gruppe NOT_SELECTED = new Gruppe("Bitte wählen");
     public static final Gruppe ALLEINE = new Gruppe("Alleine");
     public static final Gruppe FAMILIE = new Gruppe("Familie");
     public static final Gruppe FREUNDE = new Gruppe("Freunde");
@@ -17,6 +18,7 @@ public class Gruppe  {
     public static List<Gruppe> getAll(){
        if(all == null){
            all = new ArrayList<Gruppe>();
+           all.add(NOT_SELECTED);
            all.add(ALLEINE);
            all.add(FAMILIE);
            all.add(FREUNDE);
@@ -27,19 +29,17 @@ public class Gruppe  {
 
     private String displayText;
 
-    public Gruppe(String freunde) {
-        displayText = freunde;
+    public Gruppe(String text) {
+        displayText = text;
     }
 
     public String getDisplayText() {
         return displayText;
     }
 
-    public static List<String> getAllAsString() {
-      List<String> stringList = new ArrayList<String>();
-        for(Gruppe g : getAll()){
-            stringList.add(g.getDisplayText());
-        }
-        return stringList;
+    @Override
+    public String toString() {
+        return displayText;
     }
+
 }
