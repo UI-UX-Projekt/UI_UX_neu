@@ -80,7 +80,7 @@ public class MainActivity extends ActionBarActivity
         EventList eventList = EventList.getAllEvents();
         switch (position) {
             case 0:
-                mainNavigationManager.navigate(Startseite_Fragment.newInstance("test1", "test2"), getString(string.title_section1));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList),getString(string.title_section1));
                 break;
             case 1:
                 mainNavigationManager.navigate(Filter_Suche_Fragment.newInstance(mainNavigationManager), getString(string.title_section2));
