@@ -24,7 +24,7 @@ public class EventFactory {
                 8.00,  //preis
                 true,    //istFavorit
                 false,     //istEmpfehlung
-                "abends",  //tageszeit
+                Tageszeit.ABENDS,  //tageszeit
                 fill(Gruppe.FREUNDE, Gruppe.PARTNER) //listGruppe
 
         ));
@@ -43,7 +43,7 @@ public class EventFactory {
                 16.00,  //preis
                 false,    //istFavorit
                 false,     //istEmpfehlung
-                "ganztags",  //tageszeit
+                Tageszeit.GANZTAGS,  //tageszeit
                 fill(Gruppe.FAMILIE, Gruppe.FREUNDE, Gruppe.PARTNER) //listGruppe
         ));
 
@@ -60,7 +60,7 @@ public class EventFactory {
                 0.00,
                 true,
                 true,
-                "ganztags",
+                Tageszeit.GANZTAGS,
                 fill(Gruppe.FAMILIE, Gruppe.FREUNDE, Gruppe.PARTNER) //listGruppe
         ));
 
@@ -78,7 +78,7 @@ public class EventFactory {
                 30.00,
                 false,
                 false,
-                "abends",
+                Tageszeit.ABENDS,
                 fill(Gruppe.FAMILIE, Gruppe.FREUNDE, Gruppe.PARTNER))); //listGruppe
 
 

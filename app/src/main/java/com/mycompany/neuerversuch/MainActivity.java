@@ -80,7 +80,7 @@ public class MainActivity extends ActionBarActivity
         EventList eventList = EventList.getAllEvents();
         switch (position) {
             case 0:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList),getString(string.title_section1));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList,mainNavigationManager),getString(string.title_section1));
                 break;
             case 1:
                 mainNavigationManager.navigate(Filter_Suche_Fragment.newInstance(mainNavigationManager), getString(string.title_section2));
@@ -89,10 +89,10 @@ public class MainActivity extends ActionBarActivity
                 mainNavigationManager.navigate(Kategorie_Fragment.newInstance(mainNavigationManager), getString(string.title_section3));
                 break;
             case 3:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstFavorit()), getString(string.title_section4));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstFavorit(),mainNavigationManager), getString(string.title_section4));
                 break;
             case 4:
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstEmpfehlung()), getString(string.title_section5));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByIstEmpfehlung(),mainNavigationManager), getString(string.title_section5));
                 break;
             case 5:
                 mainNavigationManager.navigate(Optionen_Fragment.newInstance("test1", "test2"), getString(string.title_section7));
@@ -191,7 +191,7 @@ public class MainActivity extends ActionBarActivity
             fragmentBeforeSearch = getActiveFragment();
         }
         EventList eventList = EventList.getAllEvents();
-        searchFragment = Zentrale_Filterung_Fragment.newInstance(eventList.filteredByText(searchString));
+        searchFragment = Zentrale_Filterung_Fragment.newInstance(eventList.filteredByText(searchString),mainNavigationManager);
         mainNavigationManager.navigateWithoutHistory(searchFragment, getSupportActionBar().getTitle().toString());
 
         return eventList.size() > 0;

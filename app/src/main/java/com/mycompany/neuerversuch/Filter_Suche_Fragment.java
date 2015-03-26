@@ -28,9 +28,7 @@ public class Filter_Suche_Fragment extends Fragment {
     private Button btnMorgen;
     private Button btnMittag;
     private Button btnAbend;
-    private String tageszeit="";
-
-    TextView textViewBegleitung;
+    private Tageszeit tageszeit=Tageszeit.GANZTAGS;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -48,9 +46,6 @@ public class Filter_Suche_Fragment extends Fragment {
         final CheckBox cbNatur =(CheckBox) this.getActivity().findViewById(R.id.check_natur);
         final CheckBox cbParty =(CheckBox) this.getActivity().findViewById(R.id.check_party);
         final CheckBox cbSport =(CheckBox) this.getActivity().findViewById(R.id.check_sport);
-
-
-        Button btnClear = (Button) this.getActivity().findViewById(R.id.btnClear);
 
         begleitung = (Spinner) this.getActivity().findViewById(R.id.spinnerBegleitung);
         begleitung.setOnItemSelectedListener(new SelectingItem());
@@ -107,7 +102,7 @@ public class Filter_Suche_Fragment extends Fragment {
                     eventList=eventList.filteredByDatum(datum.getText().toString());
                 }
 
-                if(!tageszeit.equals("")){
+                if(tageszeit != Tageszeit.GANZTAGS){
                     eventList=eventList.filteredByTageszeit(tageszeit);
                 }
 
@@ -134,7 +129,7 @@ public class Filter_Suche_Fragment extends Fragment {
                     Gruppe gruppe = Gruppe.getAll().get(begleitung.getSelectedItemPosition());
                     eventList=eventList.filteredByGruppe(gruppe);
                 }
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList), getString(R.string.filter_Suche));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList,mainNavigationManager), getString(R.string.filter_Suche));
             }
 
         });
@@ -154,42 +149,35 @@ public class Filter_Suche_Fragment extends Fragment {
                 cbNatur.setChecked(false);
                 cbParty.setChecked(false);
                 cbSport.setChecked(false);
-                btnMorgen.setActivated(false);
-                btnMittag.setActivated(false);
-                btnAbend.setActivated(false);
+                tageszeit = Tageszeit.GANZTAGS;
+                updateTageszeitButtons();
             }
         });
+        btnMorgen.setOnClickListener(new TageszeitClickListener(Tageszeit.MORGENS));
+        btnMittag.setOnClickListener(new TageszeitClickListener(Tageszeit.MITTAGS));
+        btnAbend.setOnClickListener(new TageszeitClickListener(Tageszeit.ABENDS));
+    }
 
-        btnMorgen.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tageszeit="morgens";
-                btnMorgen.setActivated(true);
-                btnMittag.setActivated(false);
-                btnAbend.setActivated(false);
+    public void updateTageszeitButtons(){
+        btnMorgen.setActivated(tageszeit == Tageszeit.MORGENS);
+        btnMittag.setActivated(tageszeit == Tageszeit.MITTAGS);
+        btnAbend.setActivated(tageszeit == Tageszeit.ABENDS);
+    }
+
+    public class TageszeitClickListener implements View.OnClickListener{
+        private Tageszeit tageszeitOfListener;
+        public TageszeitClickListener(Tageszeit tageszeit){
+            tageszeitOfListener = tageszeit;
+        }
+        @Override
+        public void onClick(View v) {
+            if(tageszeit == tageszeitOfListener) {
+                tageszeit = Tageszeit.GANZTAGS;
+            }else{
+                tageszeit = tageszeitOfListener;
             }
-        });
-
-        btnMittag.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tageszeit="mittags";
-                btnMittag.setActivated(true);
-                btnMorgen.setActivated(false);
-                btnAbend.setActivated(false);
-            }
-        });
-
-        btnAbend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                tageszeit="abends";
-                btnAbend.setActivated(true);
-                btnMorgen.setActivated(false);
-                btnMittag.setActivated(false);
-            }
-        });
-
+            updateTageszeitButtons();
+        }
     }
 
     public void addSpinnerItems(){

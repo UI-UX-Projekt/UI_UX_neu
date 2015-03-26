@@ -89,7 +89,7 @@ public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemCl
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         EventList eventList=EventList.getAllEvents();
         Kategorie selectedKategorie = Kategorie.getList().get(position);
-        mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(selectedKategorie)), selectedKategorie.getText());
+        mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList.filteredByKategorie(selectedKategorie),mainNavigationManager), selectedKategorie.getText());
     }
 
 
