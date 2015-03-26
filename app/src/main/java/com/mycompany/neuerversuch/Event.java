@@ -1,6 +1,8 @@
 package com.mycompany.neuerversuch;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by D060610 on 22.03.2015.
@@ -20,9 +22,11 @@ public class Event {
     private boolean istFavorit;
     private boolean istEmpfehlung;
     private String tageszeit;
+    private List<Gruppe> listGruppe;
 
 
-    public Event(int bild, String titel, String datum,String uhrzeit, String ort, String beschreibung, String webseite, int likes, int dislikes, Kategorie kategorie, double preis, boolean istFavorit, boolean istEmpfehlung, String tageszeit){
+
+    public Event(int bild, String titel, String datum,String uhrzeit, String ort, String beschreibung, String webseite, int likes, int dislikes, Kategorie kategorie, double preis, boolean istFavorit, boolean istEmpfehlung, String tageszeit, List<Gruppe> listGruppe){
         this.bild=bild;
         this.titel=titel;
         this.datum=datum;
@@ -37,6 +41,7 @@ public class Event {
         this.istFavorit=istFavorit;
         this.istEmpfehlung=istEmpfehlung;
         this.tageszeit=tageszeit;
+        this.listGruppe=listGruppe;
 
     }
 
@@ -96,6 +101,10 @@ public class Event {
 
     public boolean getIstEmpfehlung() {
         return istEmpfehlung;
+    }
+
+    public boolean istInGruppe(Gruppe gruppe){
+        return listGruppe.contains(gruppe);
     }
 
     public String getUhrzeit() {

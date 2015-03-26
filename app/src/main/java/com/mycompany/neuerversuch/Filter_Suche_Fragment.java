@@ -143,6 +143,11 @@ public class Filter_Suche_Fragment extends Fragment {
 
                 }
 
+                if(begleitung.getSelectedItemPosition()!=0){
+                    Gruppe gruppe = Gruppe.getAll().get(begleitung.getSelectedItemPosition()-1);
+                    eventList=eventList.filteredByGruppe(gruppe);
+                }
+
                 activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList),getString(R.string.filter_Suche));   }
         });
 
@@ -172,6 +177,8 @@ public class Filter_Suche_Fragment extends Fragment {
             public void onClick(View v) {
                 tageszeit="morgens";
                 btnMorgen.setActivated(true);
+                btnMittag.setActivated(false);
+                btnAbend.setActivated(false);
             }
         });
 
@@ -180,6 +187,8 @@ public class Filter_Suche_Fragment extends Fragment {
             public void onClick(View v) {
                 tageszeit="mittags";
                 btnMittag.setActivated(true);
+                btnMorgen.setActivated(false);
+                btnAbend.setActivated(false);
             }
         });
 
@@ -188,6 +197,8 @@ public class Filter_Suche_Fragment extends Fragment {
             public void onClick(View v) {
                 tageszeit="abends";
                 btnAbend.setActivated(true);
+                btnMorgen.setActivated(false);
+                btnMittag.setActivated(false);
             }
         });
 
@@ -197,22 +208,14 @@ public class Filter_Suche_Fragment extends Fragment {
         begleitung = (Spinner) this.getActivity().findViewById(R.id.spinnerBegleitung);
         List<String> list = new ArrayList<String>();
         list.add("Bitte auswählen");
-        list.add("Alleine");
-        list.add("Familie");
-        list.add("Freunde");
-        list.add("Partner");
+        list.addAll(Gruppe.getAllAsString());
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         begleitung.setAdapter(dataAdapter);
 
     }
 
-    public void fillElements(View v){
-        String[] dropdown = {"Alleine","Familie","Freunde","Partner"};
-        Spinner begleitung = (Spinner) this.getActivity().findViewById(R.id.spinnerBegleitung);
-        ArrayAdapter<String> itemsAdapter =  new ArrayAdapter<String>(v.getContext(), R.layout.support_simple_spinner_dropdown_item, dropdown);
-        begleitung.setAdapter(itemsAdapter);
-    }
+
 
     public static Filter_Suche_Fragment newInstance(MainActivity act) {
         Filter_Suche_Fragment fragment = new Filter_Suche_Fragment();
