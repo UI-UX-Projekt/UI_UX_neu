@@ -1,21 +1,12 @@
 package com.mycompany.neuerversuch;
 
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.Color;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,17 +14,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Calendar;
-import java.util.Date;
 
 public class Filter_Suche_Fragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    private static MainActivity activity;
+    private MainNavigationManager mainNavigationManager;
     private Spinner begleitung;
     private Button search;
     private Button clear;
@@ -143,7 +131,8 @@ public class Filter_Suche_Fragment extends Fragment {
 
                 }
 
-                activity.navigate(Zentrale_Filterung_Fragment.newInstance(eventList),getString(R.string.filter_Suche));   }
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList), getString(R.string.filter_Suche));
+            }
         });
 
         clear.setOnClickListener(new View.OnClickListener() {
@@ -214,9 +203,9 @@ public class Filter_Suche_Fragment extends Fragment {
         begleitung.setAdapter(itemsAdapter);
     }
 
-    public static Filter_Suche_Fragment newInstance(MainActivity act) {
+    public static Filter_Suche_Fragment newInstance(MainNavigationManager mainNavigationManager) {
         Filter_Suche_Fragment fragment = new Filter_Suche_Fragment();
-        activity=act;
+        fragment.mainNavigationManager = mainNavigationManager;
         return fragment;
     }
 
