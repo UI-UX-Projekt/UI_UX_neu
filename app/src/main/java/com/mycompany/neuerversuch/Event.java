@@ -23,10 +23,11 @@ public class Event {
     private boolean istEmpfehlung;
     private Tageszeit tageszeit;
     private List<Gruppe> listGruppe;
+    private String detailBeschreibung;
 
 
 
-    public Event(int bild, String titel, String datum,String uhrzeit, String ort, String beschreibung, String webseite, int likes, int dislikes, Kategorie kategorie, double preis, boolean istFavorit, boolean istEmpfehlung, Tageszeit tageszeit, List<Gruppe> listGruppe){
+    public Event(int bild, String titel, String datum,String uhrzeit, String ort, String beschreibung, String webseite, int likes, int dislikes, Kategorie kategorie, double preis, boolean istFavorit, boolean istEmpfehlung, Tageszeit tageszeit, List<Gruppe> listGruppe, String detailBeschreibung){
         this.bild=bild;
         this.titel=titel;
         this.datum=datum;
@@ -42,7 +43,11 @@ public class Event {
         this.istEmpfehlung=istEmpfehlung;
         this.tageszeit=tageszeit;
         this.listGruppe=listGruppe;
+        this.detailBeschreibung=detailBeschreibung;
 
+    }
+    public String getDetailBeschreibung(){
+        return detailBeschreibung;
     }
 
     public String getBeschreibung() {

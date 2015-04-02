@@ -131,7 +131,7 @@ public class Detail_Fragment extends Fragment {
         });
 
         TextView textDescription = (TextView) view.findViewById(R.id.textDescription);
-        textDescription.setText(event.getBeschreibung());
+        textDescription.setText(event.getDetailBeschreibung());
         return view;
     }
 
