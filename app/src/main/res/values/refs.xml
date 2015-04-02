@@ -1,11 +1,2 @@
 <resources>
-
-
-    <item name="startseite_fragment_item" type="layout">@layout/startseite_fragment_item_list</item>
-
-
-
-    <item name="empfehlungen_fragment_item" type="layout">@layout/empfehlungen_fragment_item_list
-    </item>
-
 </resources>

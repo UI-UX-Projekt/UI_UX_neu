@@ -18,7 +18,6 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 
-import com.mycompany.neuerversuch.dummy.DummyContent;
 
 /**
  * A fragment representing a list of Items.

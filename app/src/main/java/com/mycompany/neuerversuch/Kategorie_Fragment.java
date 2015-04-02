@@ -51,7 +51,7 @@ public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemCl
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.startseite_fragment_item, container, false);
+        View view = inflater.inflate(R.layout.event_list_item, container, false);
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);

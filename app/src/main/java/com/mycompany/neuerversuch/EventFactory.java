@@ -68,6 +68,44 @@ public class EventFactory {
          ));
 
         eventListe.add(new Event(
+                R.drawable.ic_agostea, // bild
+                "Agostea", //titel
+                "", //datum
+                "21:00-4:00", //uhrzeit
+                "Rüppurrer Straße, Karlsruhe", //ort
+                "Der Karlsruher Nachtclub", //beschreibung
+                "http://www.agostea-karlsruhe.de/", //webseite
+                60, //likes
+                3, //dislikes
+                Kategorie.PARTY, //Kategorie
+                4.00, //preis
+                false, //istFavorit
+                false, //istEmpfehlung
+                Tageszeit.ABENDS, //tageszeit
+                fill(Gruppe.ALLEINE, Gruppe.FREUNDE, Gruppe.PARTNER), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
+                "Willkommen im Agostea in Karlsruhe! In dieser Diskothek der Superlative vergisst Du die graue Alltagsroutine und lässt Dich von einer glanzvollen Welt aus Spiegeln, Säulen und Kronleuchtern mitreißen. Mit seiner Mischung aus Disco, Barockschloss und Szenebar ist das Agosta in Karlsruhe ein außergewöhnlicher Ort des Nachtlebens. Auf drei verschiedenen Areas kannst Du Dich von unterschiedlichen Musikstilen verwöhnen lassen und Dich mal zu Rock, mal zu Pop, mal zu House und mal R'n'B bewegen. Durch seine Vielfalt bietet das Agostea die richtigen Beats für jeden Musikgeschmack und passt zu jeder Laune. Nachdem Du Dich in den zwei großzügigen Dance-Areas ausgetobt hast, gibt es zur Entspannung einen Drink in der edlen Cocktailbar. Während Du im ,,Dance-Club“ echtes Disco-Flair erlebst und zu heißen Beats die Nacht durchtanzt, geht es im ,,Discostadl“ richtig zünftig zu. Hier fühlst Du Dich direkt in den Urlaub versetzt und singst in echter Hüttenatmosphäre zu Deinen Lieblingsschlagern und Oldies. Gestalte Dir Deine Nacht so wie Du willst, genieße die Zeit mit Deinen Freunden und knüpfe interessante Kontakte. Im Agostea möchte jeder eine gute Zeit haben, Langeweile hat hier keinen Platz. Bei immer wieder neuen, aufregenden Events bekommst Du am Ende der Nacht schon wieder Lust auf die nächste Party. Stürze Dich ins Nachtleben, das Agostea erwartet Dich!"
+        ));
+
+        eventListe.add(new Event(
+                R.drawable.ic_radio_regenbogen_award, // bild
+                "Radio Regenbogen Award", //titel
+                "24.4.15", //datum 01.03-30.11
+                "19:00-23:30", //uhrzeit
+                "Rust", //ort
+                "Wir zeichnen eure Start aus der Schauspiel-, Musik- und Medienbranche aus.", //beschreibung
+                " http://www.regenbogen.de/~run/views/events/award/der-radio-regenbogen-award-2015.html", //webseite
+                68, //likes
+                36, //dislikes
+                Kategorie.MUSIK, //Kategorie
+                290.00, //preis
+                false, //istFavorit
+                false, //istEmpfehlung
+                Tageszeit.ABENDS, //tageszeit
+                fill(Gruppe.FREUNDE), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
+                "Wir zeichnen mit euch am 24. April 2015 eure Stars aus der Schauspiel-, Musik- und Medienbranche mit dem Radio Regenbogen Award 2015 aus. Zum dritten Mal wird dieser im Europa-Park Confertainment Center in Rust verliehen und ihr könnt live und hautnah dabei sein. Sichert euch schon jetzt die Tickets und erlebt einen unvergesslichen Abend aus Action, Glamour und zusammen mit euren Stars!"
+        ));
+
+        eventListe.add(new Event(
                 R.drawable.ic_baggersee_weingarten, // bild
                 "Baggersee", //titel
                 "", //datum 01.05.-30.09
@@ -125,6 +163,63 @@ public class EventFactory {
          ));
 
         eventListe.add(new Event(
+                R.drawable.ic_iaa, // bild
+                "IAA Frankfurt", //titel
+                "16.09.2016", //datum
+                "09:00-18:00", //uhrzeit
+                "Frankfurt", //ort
+                "Die IAA ist die bedeutendste Automesse weltweit", //beschreibung
+                "http://www.iaa.de/", //webseite
+                68, //likes
+                3, //dislikes
+                Kategorie.MESSE, //Kategorie
+                100.00, //preis
+                false, //istFavorit
+                false, //istEmpfehlung
+                Tageszeit.GANZTAGS, //tageszeit
+                fill(Gruppe.ALLEINE, Gruppe.FREUNDE), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
+                "Die IAA Pkw ist die weltweit umfassendste Leistungsschau der Automobilindustrie für alle, die Pkw entwickeln, herstellen, nutzen oder sich dafür begeistern. Eine besondere Eigenschaft der IAA ist die große Präsenz der Teile- & Zubehörhersteller mit rund 400 Ausstellern."
+        ));
+
+        eventListe.add(new Event(
+                R.drawable.ic_das_fest, // bild
+                "Das Fest", //titel
+                "25.7.15", //datum
+                "", //uhrzeit
+                "Karlsruhe", //ort
+                "DAS FEST war mit über 250.000 Besuchern im Jahre 2014 eine der größten Open-Air-Veranstaltungen in Deutschland", //beschreibung
+                "http://www.dasfest.de/index.php?article_id=1&clang=0", //webseite
+                18, //likes
+                7, //dislikes
+                Kategorie.MUSIK, //Kategorie
+                7.00, //preis
+                true, //istFavorit
+                true, //istEmpfehlung
+                Tageszeit.GANZTAGS, //tageszeit
+                fill(Gruppe.FREUNDE), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
+                "DAS FEST war mit über 250.000 Besuchern im Jahre 2014 eine der größten Open-Air-Veranstaltungen in Deutschland und findet seit 1985 jährlich am letzten Wochenende vor den baden-württembergischen Sommerferien, also Ende Juli, in der Günther-Klotz-Anlage (unmittelbar neben der Europahalle) in Karlsruhe statt."
+        ));
+
+        eventListe.add(new Event(
+                R.drawable.ic_cen_club, // bild
+                "Cen Club", //titel
+                "", //datum
+                "22:00-5:00", //uhrzeit
+                "Waldstraße 32, Karlsruhe", //ort
+                "Der Karlsruher Nachtclub ab 21 Jahren", //beschreibung
+                "http://www.agostea-karlsruhe.de/", //webseite
+                60, //likes
+                10, //dislikes
+                Kategorie.PARTY, //Kategorie
+                12.00, //preis
+                false, //istFavorit
+                true, //istEmpfehlung
+                Tageszeit.ABENDS, //tageszeit
+                fill(Gruppe.ALLEINE, Gruppe.FREUNDE, Gruppe.PARTNER), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
+                "Dein Club im Zentrum von Karlsruhe wartet mit wechselnden DJ's, exklusivem Ambiente, pulsierenden Beats und einer Menge guter Stimmung, auf deinen Besuch! It's time to get drunk!"
+        ));
+
+        eventListe.add(new Event(
                  R.drawable.ic_azur_camping_turmbergblick, // bild
                 "AZUR Camping Turmbergblick", //titel
                 "", //datum 01.04.-14.10.
@@ -179,6 +274,25 @@ public class EventFactory {
                 Tageszeit.GANZTAGS,  //tageszeit
                 fill(Gruppe.FAMILIE, Gruppe.FREUNDE, Gruppe.PARTNER), //listGruppe
                 "Der heutige Park der Wilhelma gehört zum historischen Erbe des Landes Baden-Württemberg. Der Park vollzog eine Wandlung vom rein privaten Rückzugsort eines Königs zu einem Zoologisch-Botanischen Garten mit rund 2 Millionen Besuchern jährlich."
+        ));
+
+        eventListe.add(new Event(
+                R.drawable.ic_pur, // bild
+                "Pur Konzert", //titel
+                "13.12.15", //datum
+                "20.00-23:00", //uhrzeit
+                "Stuttgart", //ort
+                " Es geht wieder los: PUR AUF TOUR", //beschreibung
+                "http://www.pur.de/termine/konzerte", //webseite
+                80, //likes
+                27, //dislikes
+                Kategorie.MUSIK, //Kategorie
+                50.00, //preis
+                false, //istFavorit
+                true, //istEmpfehlung
+                Tageszeit.ABENDS, //tageszeit
+                fill(Gruppe.FREUNDE), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
+                "Die Elementarteilchen des Glücks sind für Musiker und ihre Fans beinahe deckungsgleich: Wenn, auf der einen Seite, das Licht in der Arena erlischt und jeder, aber auch jeder in der Runde, für einen winzigen Augenblick diese wunderbare Ahnung spürt, dass ihn in den nächsten Momenten die Magie der Musik und der Show gefangen nehmen wird. Und – andrerseits - wenn der Musiker auf der Bühne merkt, wie das Lampenfieber, das ihn eben noch wie eine Zange eingeschnürt hat, urplötzlich abfällt und nur noch die pure Freude bleibt, mit den Fans zwei Stunden lang Party zu feiern...Diese Magie ist der Treibstoff jedes Live-Konzerts. Viel zulange mussten PUR und die Fans auf diese Magie verzichten!"
         ));
 
         eventListe.add(new Event(
@@ -256,6 +370,25 @@ public class EventFactory {
         ));
 
         eventListe.add(new Event(
+                R.drawable.ic_helene_fischer, // bild
+                "Helene Fischer.", //titel
+                "13.5.15", //datum
+                "20:00-23.00", //uhrzeit
+                "Karlsruhe", //ort
+                "Helene Fischer ist eine der berühmtesten Schlagersängerin, Tänzerin und Entertainern Deutschlands.", //beschreibung
+                "http://www.helene-fischer.de/farbenspiel-live/de/",//webseite
+                49, //likes
+                15, //dislikes
+                Kategorie.MUSIK, //Kategorie
+                0.00, //preis
+                false, //istFavorit
+                false, //istEmpfehlung
+                Tageszeit.ABENDS, //tageszeit
+                fill(Gruppe.FREUNDE), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
+                "Helene Fischer gehört zu den wenigen Künstlern, die sich und Anderen längst nichts mehr beweisen muss. Sie ist DIE Künstlerin der Stunde im deutschsprachigen Bereich: Konzerttouren vor über 200.000 begeisterten Menschen, vielfache Gold- und Platin-Auszeichnungen, Echo-Preise, eine eigene TV-Show und eine Dokumentation stehen auf ihrer Erfolgsliste, und das allein in 2013! Obendrein gibt es nun noch ein neues Studioalbum: „Farbenspiel“ heißt ihr brandaktuelles Album, welches seit dem 04.10. erhältlich ist. Produziert wurde es, wie alle ihrer bisherigen Werke, von dem Erfolgsproduzenten Jean Frankfurter, der auch die meisten Titel komponiert hat."
+        ));
+
+        eventListe.add(new Event(
                 R.drawable.ic_feldberg,
                 "Feldberg Masters",
                 "11.4.2015",
@@ -311,6 +444,25 @@ public class EventFactory {
                 fill(Gruppe.ALLEINE,Gruppe.FREUNDE,Gruppe.PARTNER), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
                 "Wir sind Mexico!Wir sind Tequila! Neben den leckersten Speisen aus dem Land der Maya und Azteken sowie einer großen Auswahl an exotischen Cocktails, bieten wir Dir außerdem 400 unterschiedlichste Tequila."
                 ));
+
+        eventListe.add(new Event(
+                R.drawable.ic_happiness, // bild
+                "Happiness", //titel
+                "10.7.15", //datum
+                "00:00-23:59", //uhrzeit
+                "Straubenhardt", //ort
+                "Jährlich lockt das 2-tägige Festival rund 10.000 Besucher in die kleine Gemeinde Straubenhardt zwischen Pforzheim und Karlsruhe und macht das Happiness damit zu einem der größten und interessantesten Events im Umkreis..", //beschreibung
+                " http://happiness-festival.de ", //webseite
+                57, //likes
+                1, //dislikes
+                Kategorie.MUSIK, //Kategorie
+                55.00, //preis
+                false, //istFavorit
+                false, //istEmpfehlung
+                Tageszeit.ABENDS, //tageszeit
+                fill(Gruppe.FREUNDE), //listGruppe Gruppe.FREUNDE, Gruppe.PARTNER Gruppe.FAMILIE
+                "Auch in diesem Jahr könnt ihr das Happiness-Wochenende wieder voll auskosten und auf dem Campingplatz neben dem Festivalgelände Übernachten. Gegen einen Unkostenbeitrag von 12€ fürs Wochenende seid ihr dabei (Zu diesen 12€ werden zusätzlich 5€ Müllpfand erhoben den ihr nach Ende der Veranstaltung gegen Abgabe eines vollen Müllsacks selbstverständlich zurückbekommt)."
+        ));
 
         eventListe.add(new Event(
                 R.drawable.ic_vfb_ksc, // bild
