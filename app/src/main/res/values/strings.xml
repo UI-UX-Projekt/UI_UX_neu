@@ -26,6 +26,9 @@
     <string name="title_kategorie5">Natur</string>
     <string name="title_kategorie6">Party</string>
     <string name="title_kategorie7">Sport</string>
+    <string name="dialog_title"></string>
+    <string name="dialog_message">Es wurden keine passenden Suchergebnisse gefunden</string>
+    <string name="ok">OK</string>
 
 
 

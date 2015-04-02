@@ -1,13 +1,5 @@
 <resources>
 
-    <!--
-    Layout alias to replace the single-pane version of the layout with a
-    two-pane version on Large screens.
-
-    For more on layout aliases, see:
-    http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
-    -->
-    <item name="ergebnis_fragment_item" type="layout">@layout/ergebnis_fragment_item_grid</item>
 
     <!--
     Layout alias to replace the single-pane version of the layout with a
@@ -18,14 +10,6 @@
     -->
     <item name="startseite_fragment_item" type="layout">@layout/startseite_fragment_item_grid</item>
 
-    <!--
-    Layout alias to replace the single-pane version of the layout with a
-    two-pane version on Large screens.
-
-    For more on layout aliases, see:
-    http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
-    -->
-    <item name="fav_fragment_item" type="layout">@layout/fav_fragment_item_grid</item>
 
     <!--
     Layout alias to replace the single-pane version of the layout with a

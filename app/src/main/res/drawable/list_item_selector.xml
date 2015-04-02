@@ -3,18 +3,17 @@
 
     <item android:state_activated="true">
         <shape>
-            <solid android:color="#ffba3583" /> <!-- FARBEN !!!!!!!!!!!!!!!!!!!!!-->
-
+            <solid android:color="#ff13ccdf" />
         </shape>
     </item>
     <item android:state_pressed="true">
         <shape>
-            <solid android:color="#ffba3583" /> <!-- FARBE beim Draufdrücken!!!!!!!!!!!!!!!!!!!!!-->
+            <solid android:color="#ff13ccdf" />
         </shape>
     </item>
     <item>
         <shape>
-            <solid android:color="#ffe9c67d" />
+            <solid android:color="#ffffffff" />
         </shape>
     </item>
 </selector>

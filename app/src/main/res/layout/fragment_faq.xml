@@ -1,9 +1,156 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="com.mycompany.neuerversuch.Faq_Fragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:clickable="true">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:clickable="true"
+            android:id="@+id/eventItem"
+            android:columnOrderPreserved="false">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Wie kann ich eine Veranstaltung suchen?"
+                android:id="@+id/frage_1"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
 
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Um eine geeignete Veranstaltung zu suchen, gibt es drei verschiedene Möglichkeit. 1. Man nutzt die Filter Suche, um personalisiert nach einer beliebigen Veranstaltung zu suchen. Die Filter Suche ist im Menü unter dem Begriff 'Filter Suche' zu finden. 2. Man nutzt die Ansicht der Empfehlungen und wählt eine empfohlene Veranstaltung aus. Diese ist im Menü unter der Kategorie 'Empfehlungen' zu finden. 3. Man nutzt die Freitextsuche in der Toolbar. Hierbei kann nach belieben Stickworten gesucht werden."
+                android:id="@+id/antwort_1"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/frage_1"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Was sind die Vorteile der Filter Suche und wie funktioniert diese?"
+                android:id="@+id/frage_2"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/antwort_1"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Die Filtersuche bietet die Möglichkeit personalisiert nach Veranstaltungen zu suchen. Hierfür wurden folgende optionale Suchkriterien festgelegt: Standort, Datum, Tageszeit, mit wem, Preis und Interessen. Die gewünschten Kriterien können nach Belieben ausgefüllt werden. Anschließend werden durch den Button 'Suchen' alle geeigneten Suchergebnisse selektiert. Durch Drücken des Knopfes 'neue Anfrage' kann eine neue Suchanfrage gestartet werden."
+                android:id="@+id/antwort_2"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/frage_2"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Warum lädt das Ergebnis so lange?"
+                android:id="@+id/frage_3"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/antwort_2"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Für die Selektion der geeigneten Veranstaltungen muss zunächst die gesamte Liste durchsucht und nach den Filtermöglichkeiten gefiltert werden. Dies führt zu einer geringen Verzögerungszeit."
+                android:id="@+id/antwort_3"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/frage_3"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Welche Android-Geräte werden unterstützt?"
+                android:id="@+id/frage_4"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/antwort_3"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Der Smartphone-Dienst '(En-) Joy Event' ist für die Bildschirmauflösung des Galaxy Nexus (1280 × 720 Pixeln) optimiert. Alle Geräte mit gleicher Auflösung können den Dienst prolemlos nutzen.  "
+                android:id="@+id/antwort_4"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/frage_4"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Wie bekomme ich detailierte Informationen zu einer Veranstaltung?"
+                android:id="@+id/frage_5"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/antwort_4"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Die Ergebnisse werden in Form einer Liste angezeigt. Durch Druck auf die Veranstaltung, zu der nähere Informationen gewünscht sind, gelangt man zu einer detailierteren Ansicht."
+                android:id="@+id/antwort_5"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/frage_5"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Wie kann ich ein favorisierte Veranstaltung rückgängig machen?"
+                android:id="@+id/frage_6"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/antwort_5"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Die Favorisierung wird durch Druck auf den Stern ausgelöst. Hat man fälschlicherweise ein falsches Event favorisiert, so kann dieser Vorgang durch erneutes Drücken des Sterns rückgängig gemacht werden."
+                android:id="@+id/antwort_6"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/frage_6"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Ich habe eine Veranstaltung falsch bewertet. Was nun?"
+                android:id="@+id/frage_7"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/antwort_6"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Die Bewertung wird über zwei Knöpfe gesteurt: Daumen hoch und Daumen runter. Drückt man ausversehen den falschen Knopf, so wird dies durch erneutes Betätigen des Knopfes rückgängig gemacht."
+                android:id="@+id/antwort_7"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/frage_7"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_gravity="left|top"/>
+        </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

@@ -118,5 +118,13 @@ public class Event {
     public void setIstFavorit(boolean istFavorit) {
         this.istFavorit = istFavorit;
     }
+
+    public void setLikes(int likes){
+        this.likes=likes;
+    }
+
+    public void setDislikes(int dislikes) {
+        this.dislikes = dislikes;
+    }
 }
 

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -33,9 +34,7 @@ public class Detail_Fragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    /**
-     * The fragment's ListView/GridView.
-     */
+
     private AbsListView mListView;
 
     private Event event;
@@ -46,18 +45,13 @@ public class Detail_Fragment extends Fragment {
         return fragment;
     }
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
+
     public Detail_Fragment() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-       // mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
     }
 
     @Override
@@ -80,11 +74,54 @@ public class Detail_Fragment extends Fragment {
         TextView webseite = (TextView) view.findViewById(R.id.webseite);
         webseite.setText(event.getWebseite());
 
-        ProgressBar rating = (ProgressBar) view.findViewById(R.id.rating);
+        final ProgressBar rating = (ProgressBar) view.findViewById(R.id.rating);
         rating.setProgress(event.getRanking());
 
         ToggleButton favorite = (ToggleButton) view.findViewById(R.id.favorite);
         favorite.setChecked(event.getIstFavorit());
+
+        final Button rating_up = (Button) view.findViewById(R.id.DaumenHoch);
+        final Button rating_down = (Button) view.findViewById(R.id.DaumenRunter);
+        rating_up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(rating_up.isActivated()){
+                    rating_up.setActivated(false);
+                    rating_up.setBackgroundResource(R.mipmap.ic_thumps_up);
+                    rating_down.setBackgroundResource(R.mipmap.ic_thumps_down);
+                    event.setLikes(event.getLikes()-1);
+                    rating.setProgress(event.getRanking());
+                }else{
+                    rating_up.setActivated(true);
+                    rating_up.setBackgroundResource(R.drawable.ic_thumps_up_pressed);
+                    event.setLikes(event.getLikes()+1);
+                    rating.setProgress(event.getRanking());
+                    rating_down.setActivated(false);
+                    rating_down.setBackgroundResource(R.mipmap.ic_thumps_down);
+
+                }
+            }
+        });
+
+
+        rating_down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(rating_down.isActivated()){
+                    rating_down.setActivated(false);
+                    rating_down.setBackgroundResource(R.mipmap.ic_thumps_down);
+                    event.setDislikes(event.getDislikes()-1);
+                    rating.setProgress(event.getRanking());
+                }else{
+                    rating_down.setActivated(true);
+                    rating_down.setBackgroundResource(R.drawable.ic_thumps_down_pressed);
+                    event.setDislikes(event.getDislikes()+1);
+                    rating.setProgress(event.getRanking());
+                    rating_up.setActivated(false);
+                    rating_up.setBackgroundResource(R.mipmap.ic_thumps_up);
+                }
+            }
+        });
 
         favorite.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -94,12 +131,7 @@ public class Detail_Fragment extends Fragment {
         });
 
         TextView textDescription = (TextView) view.findViewById(R.id.textDescription);
-        textDescription.setText(event.getBeschreibung());//TODO: Lange Beschreibung verwenden?
-
-
-
-
-
+        textDescription.setText(event.getBeschreibung());
         return view;
     }
 
@@ -121,11 +153,7 @@ public class Detail_Fragment extends Fragment {
     }
 
 
-    /**
-     * The default content for this Fragment has a TextView that is shown when
-     * the list is empty. If you would like to change the text, call this method
-     * to supply the text it should use.
-     */
+
     public void setEmptyText(CharSequence emptyText) {
         View emptyView = mListView.getEmptyView();
 
@@ -134,18 +162,9 @@ public class Detail_Fragment extends Fragment {
         }
     }
 
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p/>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
+
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         public void onFragmentInteraction(String id);
     }
 

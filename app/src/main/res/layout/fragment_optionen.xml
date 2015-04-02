@@ -1,10 +1,130 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.mycompany.neuerversuch.Optionen_Fragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:clickable="true">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:clickable="true"
+            android:id="@+id/eventItem"
+            android:columnOrderPreserved="false">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Sprache"
+                android:id="@+id/sprache"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerSprache"
+                android:popupBackground="#ffffffff"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_gravity="left|top"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/schriftgroeße"
+                android:layout_alignRight="@+id/sync"
+                android:layout_alignEnd="@+id/sync" />
 
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Schriftgröße"
+                android:id="@+id/schriftgroeße"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/sprache"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:id="@+id/schrift_klein"
+                android:text="klein"
+                android:textSize="15dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="15dp"
+                android:background="@drawable/button_selector"
+                android:textColor="#ff000000"
+                android:layout_below="@id/sprache"
+                android:layout_toRightOf="@+id/schriftgroeße"
+                android:layout_gravity="left|top" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:id="@+id/schrift_mittel"
+                android:text="mittel"
+                android:textSize="20dp"
+                android:background="@drawable/button_selector"
+                android:textColor="#ff000000"
+                android:layout_marginTop="60dp"
+                android:layout_below="@id/sprache"
+                android:layout_toRightOf="@+id/schrift_klein"
+                android:layout_gravity="left|top" />
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="40dp"
+                android:id="@+id/schrift_groß"
+                android:text="groß"
+                android:background="@drawable/button_selector"
+                android:textSize="25dp"
+                android:textColor="#ff000000"
+                android:layout_marginTop="60dp"
+                android:layout_below="@id/sprache"
+                android:layout_toRightOf="@+id/schrift_mittel"
+                android:layout_gravity="left|top" />
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Popup-Benachrichtigungen"
+                android:id="@+id/popup_info"
+                android:layout_marginTop="60dp"
+                android:textColor="#ff000000"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/schriftgroeße"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/popup_info_check"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="30dp"
+                android:layout_below="@+id/schriftgroeße"
+                android:layout_toRightOf="@+id/popup_info"
+                android:layout_gravity="left|top" />
+
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Mit Kalender synchronisieren"
+                android:id="@+id/calender_sync"
+                android:textColor="#ff000000"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/popup_info"
+                android:textSize="20dp"
+                android:layout_gravity="left|top"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/sync"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/popup_info"
+                android:layout_toRightOf="@+id/calender_sync"
+                android:layout_gravity="left|top" />
+        </RelativeLayout>
+    </ScrollView>
 </FrameLayout>

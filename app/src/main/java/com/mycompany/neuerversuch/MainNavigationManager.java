@@ -1,5 +1,6 @@
 package com.mycompany.neuerversuch;
 
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
@@ -46,4 +47,10 @@ public class MainNavigationManager {
             activity.finish();
         }
     }
-}
+
+    public void confirmMessage() {
+        DialogFragment newFragment = new MessageDialog();
+        newFragment.show(activity.getSupportFragmentManager(), "info");
+    }
+
+ }

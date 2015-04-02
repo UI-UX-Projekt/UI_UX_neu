@@ -1,23 +1,29 @@
 package com.mycompany.neuerversuch;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.DialogFragment;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
-public class Filter_Suche_Fragment extends Fragment {
+public class Filter_Suche_Fragment extends Fragment implements DatePickerDialog.OnDateSetListener{
 
     private OnFragmentInteractionListener mListener;
 
@@ -25,10 +31,13 @@ public class Filter_Suche_Fragment extends Fragment {
     private Spinner begleitung;
     private Button search;
     private Button clear;
+    private ImageButton btn_datum;
     private Button btnMorgen;
     private Button btnMittag;
     private Button btnAbend;
     private Tageszeit tageszeit=Tageszeit.GANZTAGS;
+    private TextView datum;
+    private ImageButton btn_remove;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -36,7 +45,7 @@ public class Filter_Suche_Fragment extends Fragment {
         addSpinnerItems();
 
         final EditText standort = (EditText) this.getActivity().findViewById(R.id.standort_edit);
-        final EditText datum = (EditText) this.getActivity().findViewById(R.id.datum_edit);
+        datum = (TextView) this.getActivity().findViewById(R.id.datum_edit);
         final EditText minPreis = (EditText) this.getActivity().findViewById(R.id.min_preis);
         final EditText maxPreis = (EditText) this.getActivity().findViewById(R.id.max_preis);
         final CheckBox cbEssen =(CheckBox) this.getActivity().findViewById(R.id.check_essen);
@@ -55,6 +64,9 @@ public class Filter_Suche_Fragment extends Fragment {
         btnMorgen=(Button)this.getActivity().findViewById(R.id.btnMorgen);
         btnMittag=(Button)this.getActivity().findViewById(R.id.btnMittag);
         btnAbend=(Button)this.getActivity().findViewById(R.id.btnAbend);
+        btn_datum=(ImageButton)this.getActivity().findViewById(R.id.button_datum);
+        btn_remove=(ImageButton)this.getActivity().findViewById(R.id.button_remove);
+
 
 
         search.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +141,12 @@ public class Filter_Suche_Fragment extends Fragment {
                     Gruppe gruppe = Gruppe.getAll().get(begleitung.getSelectedItemPosition());
                     eventList=eventList.filteredByGruppe(gruppe);
                 }
-                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList,mainNavigationManager), getString(R.string.filter_Suche));
+                if(eventList.size()<=0){
+                    mainNavigationManager.confirmMessage();
+                    clear.callOnClick();
+                }else {
+                    mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList, mainNavigationManager), getString(R.string.filter_Suche));
+                }
             }
 
         });
@@ -151,17 +168,41 @@ public class Filter_Suche_Fragment extends Fragment {
                 cbSport.setChecked(false);
                 tageszeit = Tageszeit.GANZTAGS;
                 updateTageszeitButtons();
+                btn_remove.setVisibility(View.INVISIBLE);
             }
         });
+        final Filter_Suche_Fragment that=this;
         btnMorgen.setOnClickListener(new TageszeitClickListener(Tageszeit.MORGENS));
         btnMittag.setOnClickListener(new TageszeitClickListener(Tageszeit.MITTAGS));
         btnAbend.setOnClickListener(new TageszeitClickListener(Tageszeit.ABENDS));
+        btn_datum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar act_date = Calendar.getInstance();
+                DatePickerDialog datePickerDialog= new DatePickerDialog(getActivity(),that,act_date.get(Calendar.YEAR),act_date.get(Calendar.MONTH),act_date.get(Calendar.DAY_OF_MONTH) );
+                datePickerDialog.show();
+            }
+        });
+        btn_remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datum.setText("");
+                btn_remove.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 
     public void updateTageszeitButtons(){
         btnMorgen.setActivated(tageszeit == Tageszeit.MORGENS);
         btnMittag.setActivated(tageszeit == Tageszeit.MITTAGS);
         btnAbend.setActivated(tageszeit == Tageszeit.ABENDS);
+    }
+
+    @Override
+    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+        int month=monthOfYear +1;
+        datum.setText(dayOfMonth + "." + month + "." + year);
+        btn_remove.setVisibility(View.VISIBLE);
     }
 
     public class TageszeitClickListener implements View.OnClickListener{
@@ -238,5 +279,6 @@ public class Filter_Suche_Fragment extends Fragment {
     public interface OnFragmentInteractionListener {
         public void onFragmentInteraction(Uri uri);
     }
+
 
 }

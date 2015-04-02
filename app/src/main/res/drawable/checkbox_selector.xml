@@ -3,25 +3,25 @@
     <item android:state_checked="true" >
         <shape xmlns:android="http://schemas.android.com/apk/res/android"
             android:shape="rectangle" >
-            <gradient android:startColor="#ff8e2793" android:endColor="#ffa3a3a3" android:angle="270"/>
+            <gradient android:startColor="#ff13ccdf" android:endColor="#ff92c1f4" android:angle="270"/>
             <stroke android:width="2px" android:color="#ff010101" />
-            <size android:height="15dp" android:width="15dp"/>
+            <size android:height="20dp" android:width="20dp"/>
         </shape>
     </item>
     <item android:state_pressed="true" >
         <shape xmlns:android="http://schemas.android.com/apk/res/android"
             android:shape="rectangle">
-            <gradient android:startColor="#ff8e2793" android:endColor="#ffa3a3a3" android:angle="270"/>
+            <gradient android:startColor="#ff13ccdf" android:endColor="#ff92c1f4" android:angle="270"/>
             <stroke android:width="2px" android:color="#ff000000" />
-            <size android:height="15dp" android:width="15dp"/>
+            <size android:height="20dp" android:width="20dp"/>
         </shape>
     </item>
     <item>
         <shape xmlns:android="http://schemas.android.com/apk/res/android"
             android:shape="rectangle">
-            <gradient android:startColor="#ffededed" android:endColor="#ffb4b4b4" android:angle="270"/>
+            <gradient android:startColor="#ffededed" android:endColor="#fff4f4f4" android:angle="270"/>
             <stroke android:width="2px" android:color="#ff000000" />
-            <size android:height="15dp" android:width="15dp"/>
+            <size android:height="20dp" android:width="20dp"/>
         </shape>
     </item>
 

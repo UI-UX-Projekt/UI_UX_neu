@@ -1,5 +1,8 @@
 package com.mycompany.neuerversuch;
 
+import android.content.res.Resources;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v4.view.MenuItemCompat;
@@ -7,11 +10,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AbsListView;
+import android.widget.EditText;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import static com.mycompany.neuerversuch.R.*;
 
@@ -32,8 +38,6 @@ public class MainActivity extends ActionBarActivity
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
      */
     private NavigationDrawerFragment mNavigationDrawerFragment;
-
-
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -101,7 +105,7 @@ public class MainActivity extends ActionBarActivity
                 mainNavigationManager.navigate(Faq_Fragment.newInstance("test1", "test2"), getString(string.title_section6));
                 break;
             default:
-                mainNavigationManager.navigate(Startseite_Fragment.newInstance("test1", "test2"), getString(string.title_section1));
+                mainNavigationManager.navigate(Zentrale_Filterung_Fragment.newInstance(eventList,mainNavigationManager),getString(string.title_section1));
                 break;
         }
 
@@ -111,13 +115,14 @@ public class MainActivity extends ActionBarActivity
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ff13ccdf")));
         actionBar.setDisplayShowTitleEnabled(true);
 
     }
 
     public void setTitle(CharSequence title) {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle(title);
+        actionBar.setTitle(Html.fromHtml("<font color=\"black\">" + title + "</font>"));
     }
 
 
@@ -132,6 +137,10 @@ public class MainActivity extends ActionBarActivity
             MenuItem searchItem = menu.findItem(id.action_search);
             if (searchItem != null) {
                 final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+                int searchTextViewId = searchView.getContext().getResources().getIdentifier("android:id/search_src_text",null,null);
+                TextView searchTextView = (TextView) searchView.findViewById(searchTextViewId);
+                searchTextView.setTextColor(Color.BLACK);
+
                 searchView.setOnCloseListener(new SearchView.OnCloseListener() {
                     @Override
                     public boolean onClose() {
@@ -186,7 +195,6 @@ public class MainActivity extends ActionBarActivity
     }
 
     public boolean onSearch(String searchString){
-
         if(searchFragment == null){
             fragmentBeforeSearch = getActiveFragment();
         }

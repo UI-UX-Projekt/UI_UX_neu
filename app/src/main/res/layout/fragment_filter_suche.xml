@@ -2,328 +2,338 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent"
     android:clickable="true">
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="left|top"
-        android:clickable="true"
-        android:id="@+id/eventItem"
-        android:columnOrderPreserved="false">
-        <TextView
-            android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/info_optional"
-            android:editable="false"
-            android:text="Alle Angaben sind optional."
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_gravity="left|top" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/standort"
-            android:text="Standort"
-            android:editable="false"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="15dp"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_gravity="left|top" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/standort_edit"
-            android:layout_marginTop="40dp"
-            android:hint="Standort"
-            android:layout_marginLeft="150dp"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
             android:layout_gravity="left|top"
-            android:inputType="text"
-             />
+            android:clickable="true"
+            android:id="@+id/eventItem"
+            android:columnOrderPreserved="false">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/info_optional"
+                android:editable="false"
+                android:text="Alle Angaben sind optional."
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_gravity="left|top" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Datum"
-            android:id="@+id/datum"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_marginTop="100dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="left|top" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/standort"
+                android:text="Standort"
+                android:editable="false"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="15dp"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_gravity="left|top" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/datum_edit"
-            android:hint="Datum"
-            android:layout_marginTop="90dp"
-            android:layout_marginLeft="150dp"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_gravity="left|top"
-            android:inputType="date"
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/standort_edit"
+                android:layout_marginTop="40dp"
+                android:hint="Standort"
+                android:layout_marginLeft="150dp"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_gravity="left|top"
+                android:inputType="text"
+                 />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Datum"
+                android:id="@+id/datum"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_marginTop="90dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="left|top" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/datum_edit"
+                android:hint="Datum"
+                android:layout_marginTop="90dp"
+                android:layout_marginLeft="150dp"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_gravity="left|top"
+                android:inputType="date"
+                />
+
+
+            <ImageButton
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:background="#ffffffff"
+                android:src="@drawable/ic_action_remove"
+                android:id="@+id/button_remove"
+                android:visibility="invisible"
+                android:layout_marginTop="92dp"
+                android:layout_marginLeft="240dp"/>
+
+            <ImageButton
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/ic_calender"
+                android:id="@+id/button_datum"
+                android:background="#ffffffff"
+                android:layout_marginTop="85dp"
+                android:layout_marginLeft="265dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tageszeit"
+                android:text="Tageszeit"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_marginTop="140dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="left|top" />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:id="@+id/btnMorgen"
+                android:text="morgens"
+                android:textSize="10dp"
+                android:background="@drawable/button_selector"
+                android:layout_marginTop="140dp"
+                android:layout_marginLeft="150dp"
+                android:layout_gravity="left|top"
+                />
+
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:id="@+id/btnMittag"
+                android:text="mittags"
+                android:textSize="10dp"
+                android:background="@drawable/button_selector"
+                android:layout_marginTop="140dp"
+                android:layout_toRightOf="@+id/btnMorgen"
+                android:layout_gravity="left|top"
+                />
+            <Button
+                android:layout_width="60dp"
+                android:layout_height="20dp"
+                android:id="@+id/btnAbend"
+                android:background="@drawable/button_selector"
+                android:text="abends"
+                android:textSize="10dp"
+                android:layout_marginTop="140dp"
+                android:layout_toRightOf="@+id/btnMittag"
+                android:layout_gravity="left|top"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/mit_wem"
+                android:text="mit wem"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_marginTop="190dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="left|top" />
+
+            <Spinner
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerBegleitung"
+                android:layout_marginTop="185dp"
+                android:layout_marginLeft="150dp"
+                android:popupBackground="#ffffffff"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_gravity="left|top"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/preis"
+                android:text="Preis"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_marginTop="240dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="left|top" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/min_preis"
+                android:hint="von"
+                android:layout_marginTop="230dp"
+                android:layout_marginLeft="150dp"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_gravity="left|top"
+                android:inputType="numberDecimal"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/bis"
+                android:text="-"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_marginTop="240dp"
+                android:layout_marginLeft="210dp"
+                android:layout_gravity="left|top" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/max_preis"
+                android:hint="bis"
+                android:layout_marginTop="230dp"
+                android:layout_marginLeft="240dp"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_gravity="left|top"
+                android:inputType="numberDecimal"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/interessen"
+                android:text="Interessen"
+                android:textSize="15dp"
+                android:textColor="#ff000000"
+                android:layout_marginTop="290dp"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="left|top" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/check_essen"
+                android:textSize="15dp"
+                android:button="@drawable/checkbox_selector"
+                android:textColor="#ff000000"
+                android:text="Essen und Trinken"
+                android:layout_marginTop="290dp"
+                android:layout_marginLeft="150dp"
+                android:layout_gravity="left|top" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/check_kultur"
+                android:textSize="15dp"
+                android:button="@drawable/checkbox_selector"
+                android:textColor="#ff000000"
+                android:text="Kultur"
+                android:layout_marginTop="325dp"
+                android:layout_marginLeft="150dp"
+                android:layout_gravity="left|top" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/check_messe"
+                android:textSize="15dp"
+                android:button="@drawable/checkbox_selector"
+                android:textColor="#ff000000"
+                android:text="Messe"
+                android:layout_marginTop="360dp"
+                android:layout_marginLeft="150dp"
+                android:layout_gravity="left|top" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/check_musik"
+                android:textSize="15dp"
+                android:button="@drawable/checkbox_selector"
+                android:textColor="#ff000000"
+                android:text="Musik"
+                android:layout_marginTop="395dp"
+                android:layout_marginLeft="150dp"
+                android:layout_gravity="left|top" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/check_natur"
+                android:textSize="15dp"
+                android:button="@drawable/checkbox_selector"
+                android:textColor="#ff000000"
+                android:text="Natur"
+                android:layout_marginTop="325dp"
+                android:layout_marginLeft="270dp"
+                android:layout_gravity="left|top" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/check_party"
+                android:textSize="15dp"
+                android:button="@drawable/checkbox_selector"
+                android:textColor="#ff000000"
+                android:text="Party"
+                android:layout_marginTop="360dp"
+                android:layout_marginLeft="270dp"
+                android:layout_gravity="left|top" />
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/check_sport"
+                android:textSize="15dp"
+                android:button="@drawable/checkbox_selector"
+                android:textColor="#ff000000"
+                android:text="Sport"
+                android:layout_marginTop="395dp"
+                android:layout_marginLeft="270dp"
+                android:layout_gravity="left|top" />
+
+
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:id="@+id/btnClear"
+                android:text="neue Anfrage"
+                android:textSize="15dp"
+                android:background="@drawable/button_selector"
+                android:height="20dp"
+                android:width="80dp"
+                android:maxWidth="80dp"
+                android:maxHeight="20dp"
+                android:layout_marginTop="460dp"
+                android:layout_marginLeft="50dp"
+                android:layout_gravity="left|top"
             />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tageszeit"
-            android:text="Tageszeit"
-            android:textColor="#ff000000"
-            android:textSize="15dp"
-            android:layout_marginTop="155dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="left|top" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMorgen"
-            android:text="morgens"
-            android:textSize="10dp"
-            android:background="@drawable/button_selector"
-            android:maxWidth="60dp"
-            android:maxHeight="15dp"
-            android:layout_marginTop="140dp"
-            android:layout_marginLeft="150dp"
-            android:layout_gravity="left|top"
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:id="@+id/btnSearch"
+                android:text="Suchen"
+                android:textSize="15dp"
+                android:background="@drawable/button_selector"
+                android:layout_marginTop="460dp"
+                android:layout_marginLeft="220dp"
+                android:layout_gravity="left|top"
             />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnMittag"
-            android:text="mittags"
-            android:textSize="10dp"
-            android:background="@drawable/button_selector"
-            android:maxWidth="60dp"
-            android:maxHeight="15dp"
-            android:layout_marginTop="140dp"
-            android:layout_marginLeft="210dp"
-            android:layout_gravity="left|top"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnAbend"
-            android:background="@drawable/button_selector"
-            android:text="abends"
-            android:textSize="10dp"
-            android:maxWidth="60dp"
-            android:maxHeight="15dp"
-            android:layout_marginTop="140dp"
-            android:layout_marginLeft="270dp"
-            android:layout_gravity="left|top"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/mit_wem"
-            android:text="mit wem"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_marginTop="220dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="left|top" />
-
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinnerBegleitung"
-            android:layout_marginTop="210dp"
-            android:layout_marginLeft="150dp"
-            android:popupBackground="#ffc9a35a"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_gravity="left|top"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/preis"
-            android:text="Preis"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_marginTop="270dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="left|top" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/min_preis"
-            android:hint="von"
-            android:layout_marginTop="260dp"
-            android:layout_marginLeft="150dp"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_gravity="left|top"
-            android:inputType="numberDecimal"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/bis"
-            android:text="-"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_marginTop="270dp"
-            android:layout_marginLeft="210dp"
-            android:layout_gravity="left|top" />
-
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/max_preis"
-            android:hint="bis"
-            android:layout_marginTop="260dp"
-            android:layout_marginLeft="240dp"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_gravity="left|top"
-            android:inputType="numberDecimal"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/interessen"
-            android:text="Interessen"
-            android:textSize="15dp"
-            android:textColor="#ff000000"
-            android:layout_marginTop="320dp"
-            android:layout_marginLeft="15dp"
-            android:layout_gravity="left|top" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/check_essen"
-            android:textSize="12dp"
-            android:button="@drawable/checkbox_selector"
-            android:textColor="#ff000000"
-            android:text="Essen und Trinken"
-            android:layout_marginTop="320dp"
-            android:layout_marginLeft="150dp"
-            android:layout_gravity="left|top" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/check_kultur"
-            android:textSize="12dp"
-            android:button="@drawable/checkbox_selector"
-            android:textColor="#ff000000"
-            android:text="Kultur"
-            android:layout_marginTop="345dp"
-            android:layout_marginLeft="150dp"
-            android:layout_gravity="left|top" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/check_messe"
-            android:textSize="12dp"
-            android:button="@drawable/checkbox_selector"
-            android:textColor="#ff000000"
-            android:text="Messe"
-            android:layout_marginTop="370dp"
-            android:layout_marginLeft="150dp"
-            android:layout_gravity="left|top" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/check_musik"
-            android:textSize="12dp"
-            android:button="@drawable/checkbox_selector"
-            android:textColor="#ff000000"
-            android:text="Musik"
-            android:layout_marginTop="395dp"
-            android:layout_marginLeft="150dp"
-            android:layout_gravity="left|top" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/check_natur"
-            android:textSize="12dp"
-            android:button="@drawable/checkbox_selector"
-            android:textColor="#ff000000"
-            android:text="Natur"
-            android:layout_marginTop="320dp"
-            android:layout_marginLeft="270dp"
-            android:layout_gravity="left|top" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/check_party"
-            android:textSize="12dp"
-            android:button="@drawable/checkbox_selector"
-            android:textColor="#ff000000"
-            android:text="Party"
-            android:layout_marginTop="345dp"
-            android:layout_marginLeft="270dp"
-            android:layout_gravity="left|top" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/check_sport"
-            android:textSize="12dp"
-            android:button="@drawable/checkbox_selector"
-            android:textColor="#ff000000"
-            android:text="Sport"
-            android:layout_marginTop="370dp"
-            android:layout_marginLeft="270dp"
-            android:layout_gravity="left|top" />
-
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnClear"
-            android:text="neue Anfrage"
-            android:textSize="15dp"
-            android:background="@drawable/button_selector"
-            android:height="20dp"
-            android:width="80dp"
-            android:maxWidth="80dp"
-            android:maxHeight="20dp"
-            android:layout_marginTop="450dp"
-            android:layout_marginLeft="50dp"
-            android:layout_gravity="left|top"
-        />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnSearch"
-            android:text="Suchen"
-            android:textSize="15dp"
-            android:background="@drawable/button_selector"
-            android:layout_marginTop="450dp"
-            android:maxWidth="80dp"
-            android:height="20dp"
-            android:width="80dp"
-            android:maxHeight="20dp"
-            android:layout_marginLeft="200dp"
-            android:layout_gravity="left|top"
-        />
-
-
-
-    </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
 
 </FrameLayout>
 
