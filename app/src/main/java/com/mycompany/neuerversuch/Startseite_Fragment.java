@@ -12,24 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Large screen devices (such as tablets) are supported by replacing the ListView
- * with a GridView.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
- * interface.
- */
-public class Startseite_Fragment extends Fragment implements AbsListView.OnItemClickListener {
 
+
+public class Startseite_Fragment extends Fragment implements AbsListView.OnItemClickListener {
     private OnFragmentInteractionListener mListener;
     private AbsListView mListView;
-
-    /**
-     * The Adapter which will be used to populate the ListView/GridView with
-     * Views.
-     */
     private ListAdapter mAdapter;
 
     public static Startseite_Fragment newInstance(String param1, String param2) {
@@ -38,10 +25,6 @@ public class Startseite_Fragment extends Fragment implements AbsListView.OnItemC
         return fragment;
     }
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public Startseite_Fragment() {
     }
 
@@ -49,8 +32,6 @@ public class Startseite_Fragment extends Fragment implements AbsListView.OnItemC
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

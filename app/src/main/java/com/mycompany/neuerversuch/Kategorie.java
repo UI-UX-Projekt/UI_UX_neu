@@ -3,9 +3,8 @@ package com.mycompany.neuerversuch;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by D060610 on 22.03.2015.
- */
+
+
 public class Kategorie {
 
     public static final Kategorie ESSEN = new Kategorie(R.drawable.ic_essen, "Essen und Trinken");

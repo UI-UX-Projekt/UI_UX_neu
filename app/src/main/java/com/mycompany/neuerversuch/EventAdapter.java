@@ -12,9 +12,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
-/**
- * Created by D060610 on 22.03.2015.
- */
+
 public class EventAdapter extends ArrayAdapter<Event> {
 
 

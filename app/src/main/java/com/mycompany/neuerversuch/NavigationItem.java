@@ -1,8 +1,7 @@
 package com.mycompany.neuerversuch;
 
-/**
- * Created by D060610 on 24.03.2015.
- */
+
+
 public class NavigationItem {
     public static  final  NavigationItem STARTSEITE = new NavigationItem(R.drawable.ic_startseite, "Startseite");
     public static  final  NavigationItem FILTER_SUCHE = new NavigationItem(R.drawable.ic_filter, "Filter Suche");
@@ -11,7 +10,6 @@ public class NavigationItem {
     public static  final  NavigationItem EMPFEHLUNGEN = new NavigationItem(R.drawable.ic_empfehlungen, "Empfehlungen");
     public static  final  NavigationItem HILFE = new NavigationItem(R.drawable.ic_hilfe, "Hilfe");
     public static  final  NavigationItem EINSTELLUNGEN= new NavigationItem(R.drawable.ic_optionen, "Einstellungen");
-
     private int icon;
     private String text;
 

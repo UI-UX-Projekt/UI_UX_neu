@@ -9,15 +9,13 @@ import android.os.Bundle;
 
 import static android.app.PendingIntent.getActivity;
 
-/**
- * Created by D060610 on 27.03.2015.
- */
+
+
 public class MessageDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
 
         builder.setMessage(R.string.dialog_message)
                 .setTitle(R.string.dialog_title);
@@ -29,8 +27,6 @@ public class MessageDialog extends DialogFragment {
         });
 
         AlertDialog dialog = builder.create();
-
-
         return dialog;
     }
 }

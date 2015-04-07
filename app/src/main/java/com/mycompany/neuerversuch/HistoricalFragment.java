@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.view.MenuItem;
 import android.view.animation.Animation;
 
+
+
 public class HistoricalFragment {
 
     private final Fragment originalFragment;

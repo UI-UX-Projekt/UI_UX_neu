@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+
+
 public class GruppeAdapter extends ArrayAdapter<Gruppe> {
    private Context context;
     public GruppeAdapter(Context context) {

@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by D060610 on 22.03.2015.
- */
+
 public class Event {
     private int bild;
     private String titel;

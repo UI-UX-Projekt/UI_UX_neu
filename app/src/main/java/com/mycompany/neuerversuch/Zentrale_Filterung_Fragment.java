@@ -15,31 +15,12 @@ import android.widget.TextView;
 
 
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Large screen devices (such as tablets) are supported by replacing the ListView
- * with a GridView.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
- * interface.
- */
 public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView.OnItemClickListener {
 
     private OnFragmentInteractionListener mListener;
-
     //EventList for central filtering
     private  EventList eventList;
-
-    /**
-     * The fragment's ListView/GridView.
-     */
     private AbsListView mListView;
-
-    /**
-     * The Adapter which will be used to populate the ListView/GridView with
-     * Views.
-     */
     private EventAdapter mAdapter;
     private MainNavigationManager mainNavigationManager;
 
@@ -50,10 +31,6 @@ public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView
         return fragment;
     }
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public Zentrale_Filterung_Fragment() {
 
     }
@@ -70,7 +47,6 @@ public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView
         mAdapter=new EventAdapter(getActivity(),eventList);
 
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -113,7 +89,6 @@ public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView
 
     }
 
-
     public void setEmptyText(CharSequence emptyText) {
         View emptyView = mListView.getEmptyView();
 
@@ -121,7 +96,6 @@ public class Zentrale_Filterung_Fragment extends Fragment implements AbsListView
             ((TextView) emptyView).setText(emptyText);
         }
     }
-
 
     public interface OnFragmentInteractionListener {
         public void onFragmentInteraction(String id);

@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-/**
- * Created by D060610 on 24.03.2015.
- */
+
+
 public class NavigationAdapter extends ArrayAdapter<NavigationItem> {
     private final Context context;
     private final List<NavigationItem> listNavigation;

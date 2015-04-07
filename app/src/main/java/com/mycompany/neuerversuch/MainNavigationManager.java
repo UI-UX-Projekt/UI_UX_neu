@@ -3,8 +3,9 @@ package com.mycompany.neuerversuch;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-
 import java.util.LinkedList;
+
+
 
 public class MainNavigationManager {
 

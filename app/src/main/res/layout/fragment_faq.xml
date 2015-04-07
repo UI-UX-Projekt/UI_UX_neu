@@ -151,6 +151,16 @@
                 android:textColor="#ff000000"
                 android:textSize="15dp"
                 android:layout_gravity="left|top"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Für weitere Fragen wenden Sie sich bitte an folgende E-Mailadresse: hilfe@enjoy-event.de"
+                android:id="@+id/weitere_fragen"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="15dp"
+                android:layout_below="@+id/antwort_7"
+                android:textColor="#ff000000"
+                android:textSize="15dp"
+                android:layout_gravity="left|top"/>
         </RelativeLayout>
     </ScrollView>
 </FrameLayout>

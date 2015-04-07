@@ -19,15 +19,6 @@ import android.widget.ToggleButton;
 
 
 
-/**
- * A fragment representing a list of Items.
- * <p/>
- * Large screen devices (such as tablets) are supported by replacing the ListView
- * with a GridView.
- * <p/>
- * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
- * interface.
- */
 public class Detail_Fragment extends Fragment {
 
 
@@ -91,12 +82,15 @@ public class Detail_Fragment extends Fragment {
                     event.setLikes(event.getLikes()-1);
                     rating.setProgress(event.getRanking());
                 }else{
+                    if(rating_down.isActivated()){
+                        rating_down.setActivated(false);
+                        rating_down.setBackgroundResource(R.mipmap.ic_thumps_down);
+                        event.setDislikes(event.getDislikes()-1);
+                    }
                     rating_up.setActivated(true);
                     rating_up.setBackgroundResource(R.drawable.ic_thumps_up_pressed);
                     event.setLikes(event.getLikes()+1);
                     rating.setProgress(event.getRanking());
-                    rating_down.setActivated(false);
-                    rating_down.setBackgroundResource(R.mipmap.ic_thumps_down);
 
                 }
             }
@@ -112,12 +106,15 @@ public class Detail_Fragment extends Fragment {
                     event.setDislikes(event.getDislikes()-1);
                     rating.setProgress(event.getRanking());
                 }else{
+                    if(rating_up.isActivated()){
+                        rating_up.setActivated(false);
+                        rating_up.setBackgroundResource(R.mipmap.ic_thumps_up);
+                        event.setLikes(event.getLikes()-1);
+                    }
                     rating_down.setActivated(true);
                     rating_down.setBackgroundResource(R.drawable.ic_thumps_down_pressed);
                     event.setDislikes(event.getDislikes()+1);
                     rating.setProgress(event.getRanking());
-                    rating_up.setActivated(false);
-                    rating_up.setBackgroundResource(R.mipmap.ic_thumps_up);
                 }
             }
         });

@@ -3,9 +3,7 @@ package com.mycompany.neuerversuch;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by D060610 on 26.03.2015.
- */
+
 public class EventFactory {
     
     public static  EventList createAllEvents(){
@@ -244,7 +242,7 @@ public class EventFactory {
                 "", //datum
                 "00:00-23:59", //uhrzeit
                 "Karlsruhe", //ort
-                "CeBIT - Die IT-Messe für Deutschland", //beschreibung
+                "Ein romatisches Picknick zu zweit, mit der ganzen Familie oder mit Freunden", //beschreibung
                 "http://www.cebit.de/", //webseite
                 60, //likes
                 3, //dislikes

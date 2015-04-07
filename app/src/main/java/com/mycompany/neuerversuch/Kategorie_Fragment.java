@@ -15,14 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link Kategorie_Fragment.OnFragmentInteractionListener} interface
- * to handle interaction events.
- * Use the {@link Kategorie_Fragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemClickListener{
     private AbsListView mListView;
 
@@ -52,6 +45,7 @@ public class Kategorie_Fragment extends Fragment implements AbsListView.OnItemCl
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.event_list_item, container, false);
+
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);

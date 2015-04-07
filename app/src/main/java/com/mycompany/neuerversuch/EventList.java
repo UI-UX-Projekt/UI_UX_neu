@@ -9,9 +9,7 @@ import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
-/**
- * Created by D060610 on 22.03.2015.
- */
+
 public class EventList extends ArrayList<Event>{
     public static EventList eventListe;
 

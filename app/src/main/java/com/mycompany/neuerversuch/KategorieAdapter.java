@@ -11,6 +11,7 @@ import android.widget.TextView;
 import java.util.List;
 
 
+
 public class KategorieAdapter extends ArrayAdapter<Kategorie> {
     private final Context context;
     private final List<Kategorie> listKategorie;
