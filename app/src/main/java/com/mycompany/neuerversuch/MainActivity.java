@@ -203,9 +203,8 @@ public class MainActivity extends ActionBarActivity
         searchFragment = null;
         if(fragmentBeforeSearch != null){
             mainNavigationManager.navigateWithoutHistory(fragmentBeforeSearch, getSupportActionBar().getTitle().toString());
-        }else {
-            mainNavigationManager.navigateWithoutHistory(Startseite_Fragment.newInstance("test1", "test2"), getString(string.title_section1));
         }
+        fragmentBeforeSearch = null;
         return false;
     }
 

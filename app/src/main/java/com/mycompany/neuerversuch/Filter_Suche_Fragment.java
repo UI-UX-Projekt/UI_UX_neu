@@ -23,10 +23,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+
+
 public class Filter_Suche_Fragment extends Fragment implements DatePickerDialog.OnDateSetListener{
 
     private OnFragmentInteractionListener mListener;
-
     private MainNavigationManager mainNavigationManager;
     private Spinner begleitung;
     private Button search;
@@ -58,7 +59,6 @@ public class Filter_Suche_Fragment extends Fragment implements DatePickerDialog.
 
         begleitung = (Spinner) this.getActivity().findViewById(R.id.spinnerBegleitung);
         begleitung.setOnItemSelectedListener(new SelectingItem());
-
         search=(Button)this.getActivity().findViewById(R.id.btnSearch);
         clear=(Button)this.getActivity().findViewById(R.id.btnClear);
         btnMorgen=(Button)this.getActivity().findViewById(R.id.btnMorgen);
@@ -228,8 +228,6 @@ public class Filter_Suche_Fragment extends Fragment implements DatePickerDialog.
         begleitung.setAdapter(dataAdapter);
 
     }
-
-
 
     public static Filter_Suche_Fragment newInstance(MainNavigationManager mainNavigationManager) {
         Filter_Suche_Fragment fragment = new Filter_Suche_Fragment();

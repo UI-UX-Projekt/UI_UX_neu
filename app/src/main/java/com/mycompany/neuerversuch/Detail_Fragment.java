@@ -21,12 +21,8 @@ import android.widget.ToggleButton;
 
 public class Detail_Fragment extends Fragment {
 
-
     private OnFragmentInteractionListener mListener;
-
-
     private AbsListView mListView;
-
     private Event event;
 
     public static Detail_Fragment newInstance(Event event) {
@@ -34,7 +30,6 @@ public class Detail_Fragment extends Fragment {
         fragment.event = event;
         return fragment;
     }
-
 
     public Detail_Fragment() {
     }

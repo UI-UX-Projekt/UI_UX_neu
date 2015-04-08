@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class EventFactory {
     
     public static  EventList createAllEvents(){
@@ -11,7 +12,7 @@ public class EventFactory {
         eventListe.add(new Event(
                 R.drawable.ic_en_vogue, // bild
                 "House, Electro meets Charts",  //titel
-                "11.4.15",    //datum
+                "11.4.2015",    //datum
                 "22:00",    //uhrzeit
                 "Karlsruhe",      //ort
                 "House, Electro meets Charts // mit Nicolas Westermann & Mike - the guitar Hero",   //beschreibung
@@ -87,7 +88,7 @@ public class EventFactory {
         eventListe.add(new Event(
                 R.drawable.ic_radio_regenbogen_award, // bild
                 "Radio Regenbogen Award", //titel
-                "24.4.15", //datum 01.03-30.11
+                "24.4.2015", //datum 01.03-30.11
                 "19:00-23:30", //uhrzeit
                 "Rust", //ort
                 "Wir zeichnen eure Start aus der Schauspiel-, Musik- und Medienbranche aus.", //beschreibung
@@ -182,7 +183,7 @@ public class EventFactory {
         eventListe.add(new Event(
                 R.drawable.ic_das_fest, // bild
                 "Das Fest", //titel
-                "25.7.15", //datum
+                "25.7.2015", //datum
                 "", //uhrzeit
                 "Karlsruhe", //ort
                 "DAS FEST war mit über 250.000 Besuchern im Jahre 2014 eine der größten Open-Air-Veranstaltungen in Deutschland", //beschreibung
@@ -243,10 +244,10 @@ public class EventFactory {
                 "00:00-23:59", //uhrzeit
                 "Karlsruhe", //ort
                 "Ein romatisches Picknick zu zweit, mit der ganzen Familie oder mit Freunden", //beschreibung
-                "http://www.cebit.de/", //webseite
+                "", //webseite
                 60, //likes
                 3, //dislikes
-                Kategorie.MESSE, //Kategorie
+                Kategorie.NATUR, //Kategorie
                 30.00, //preis
                 false, //istFavorit
                 false, //istEmpfehlung
@@ -277,7 +278,7 @@ public class EventFactory {
         eventListe.add(new Event(
                 R.drawable.ic_pur, // bild
                 "Pur Konzert", //titel
-                "13.12.15", //datum
+                "13.12.2015", //datum
                 "20.00-23:00", //uhrzeit
                 "Stuttgart", //ort
                 " Es geht wieder los: PUR AUF TOUR", //beschreibung
@@ -370,7 +371,7 @@ public class EventFactory {
         eventListe.add(new Event(
                 R.drawable.ic_helene_fischer, // bild
                 "Helene Fischer.", //titel
-                "13.5.15", //datum
+                "13.5.2015", //datum
                 "20:00-23.00", //uhrzeit
                 "Karlsruhe", //ort
                 "Helene Fischer ist eine der berühmtesten Schlagersängerin, Tänzerin und Entertainern Deutschlands.", //beschreibung
@@ -446,7 +447,7 @@ public class EventFactory {
         eventListe.add(new Event(
                 R.drawable.ic_happiness, // bild
                 "Happiness", //titel
-                "10.7.15", //datum
+                "10.7.2015", //datum
                 "00:00-23:59", //uhrzeit
                 "Straubenhardt", //ort
                 "Jährlich lockt das 2-tägige Festival rund 10.000 Besucher in die kleine Gemeinde Straubenhardt zwischen Pforzheim und Karlsruhe und macht das Happiness damit zu einem der größten und interessantesten Events im Umkreis..", //beschreibung
